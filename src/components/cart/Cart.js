@@ -16,10 +16,11 @@ const Cart = (props) => {
     cartItemsAllDetails,
     currentHotel,
   } = useCartContext();
-  const [tableNumber, setTableNumber] = useState(-1);
+  const [tableNumber, setTableNumber] = useState('');
   const searchParams = useSearchParams();
-  const [currentHotelConfig, setCurrentHotelConfig] = useState({});
   const [isCheckout, setIsCheckout] = useState(false);
+
+  const currentHotelConfig = config[currentHotel] || {};
 
   const hasItems = Object.keys(cartItems).some(
     (itemId) => cartItems[itemId] > 0
@@ -52,22 +53,14 @@ const Cart = (props) => {
     }
   }, [searchParams]);
 
-  useEffect(() => {
-    if(currentHotel) {
-        setCurrentHotelConfig(config[currentHotel]);
-    }
-  }, [currentHotel]);
-
   const handleOrder = () => {
     setIsCheckout(true);
   };
 
   const submitOrderHandler = (userData) => {
     let tableDetail = "";
-    if (tableNumber > 0) {
+    if (tableNumber) {
       tableDetail = `on Table: ${tableNumber}`;
-    } else if (searchParams.get("custom_table_name")) {
-      tableDetail = `on Table: ${searchParams.get("custom_table_name")}`;
     }
     
     let orderWhatsAppMessage = `https://api.whatsapp.com/send/?phone=+91${currentHotelConfig.whatsapp}&text=New Order from ${userData.name} ${tableDetail}%0a%0a`;

@@ -44,7 +44,7 @@ const Checkout = props => {
             ref={nameInputRef} 
             type='text' 
             id='name'
-            className={`font-inherit border border-solid border-border bg-background text-foreground rounded w-full p-1 ${!formValidity.name ? 'border-destructive bg-red-100' : ''}`}
+            className={`font-inherit border border-solid  bg-background text-foreground rounded w-full p-1 ${formValidity.name ? 'border-border' : 'border-destructive bg-red-100'}`}
         />
         {!formValidity.name && <p className="text-destructive text-xs">Please enter a valid name!</p>}
       </div>
