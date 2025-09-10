@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
-import { CartProvider } from "@/components/context/cart-context";
+import { CartProvider, useCartContext } from "@/components/context/cart-context";
+import { ThemeProvider } from "@/components/context/theme-provider";
 
 const noto = Noto_Sans_JP({ subsets: ["latin"], weight: ["400", "700"] });
 
@@ -16,12 +17,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={noto.className}>
-        <CartProvider>
-          {children}
-        </CartProvider>
-        <div id="overlays"></div>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <CartProvider>
+            {children}
+          </CartProvider>
+          <div id="overlays"></div>
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -24,7 +24,7 @@
   font-size: 0.875rem;
   cursor: pointer;
   background-color: transparent;
-  border: 1px solid #FF5722;
+  border: 1px solid hsl(var(--primary));
   padding: 0.5rem 2rem;
   border-radius: 25px;
   margin-left: 1rem;
@@ -32,12 +32,12 @@
 
 .actions button:hover,
 .actions button:active {
-  background-color: #FF5722;
-  border-color: #FF5722;
-  color: white;
+  background-color: hsl(var(--primary));
+  border-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
 }
 
 .actions .button {
-  background-color: #FF5722;
-  color: white;
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
 }

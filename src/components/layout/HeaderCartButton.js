@@ -30,7 +30,7 @@ const HeaderCartButton = (props) => {
     }
   }, [cartItems]);
 
-  const btnClasses = `fixed bottom-0 left-0 w-full bg-gray-800 text-white cursor-pointer flex justify-between items-center p-3 md:p-4 shadow-lg z-20 ${isBumping ? 'animate-bump' : ''}`;
+  const btnClasses = `fixed bottom-0 left-0 w-full bg-secondary text-secondary-foreground cursor-pointer flex justify-between items-center p-3 md:p-4 shadow-lg z-20 ${isBumping ? 'animate-bump' : ''}`;
 
   return (
     <div onClick={clickHandler} className={btnClasses}>
@@ -39,7 +39,7 @@ const HeaderCartButton = (props) => {
           <CartIcon />
         </span>
         <span className="text-sm md:text-base font-bold">Your Cart</span>
-        <span className="bg-orange-500 text-white text-xs font-bold rounded-full px-2 py-1">
+        <span className="bg-primary text-primary-foreground text-xs font-bold rounded-full px-2 py-1">
           {totalCartItems}
         </span>
       </div>
