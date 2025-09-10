@@ -1,5 +1,7 @@
+'use client';
 import { useCartContext } from "../context/cart-context";
 import classes from "./MealItem.module.css";
+import Image from "next/image";
 
 const MealItem = (props) => {
   const { cartItems, addItemToCart, removeItemFromCart } = useCartContext();
@@ -31,7 +33,7 @@ const MealItem = (props) => {
             <div className={classes.price}>{price}</div>
           </div>
           <div className="col-5 m-auto text-center">
-            {props?.img ? <img className={classes.img} src={props.img} alt={props.alt} /> : null}
+            {props?.img ? <Image className={classes.img} src={props.img} alt={props.alt || 'Meal item'} width={200} height={200} /> : null}
             {selectedCount === 0 ? (
               <span style={{ marginTop: "-2vh" }}>
                 <button onClick={() => handleCartCount(props.id, 'add')} className={classes.addBtn}>

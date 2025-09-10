@@ -1,5 +1,6 @@
+'use client';
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams } from "next/navigation";
 import configData from "../../data/config.json";
 import Button from "@mui/material/Button";
 import RadioButtonCheckedIcon from "@mui/icons-material/RadioButtonChecked";
@@ -8,13 +9,22 @@ const TypeSelecter = () => {
   const params = useParams();
   const hotelInUrl = params.hotel;
   const currentData = configData[hotelInUrl];
-  const storedMenuType = sessionStorage.getItem("menuType");
+  const [storedMenuType, setStoredMenuType] = useState(null);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+        setStoredMenuType(sessionStorage.getItem("menuType"))
+    }
+  }, []);
+  
   const [selectedMenu, setSelectedMenu] = useState(storedMenuType || null);
+
   useEffect(() => {
     if (selectedMenu) {
       sessionStorage.setItem("menuType", selectedMenu);
     }
   }, [selectedMenu]);
+  
   const handleMenuSelect = (menuType) => {
     setSelectedMenu(menuType);
   };
@@ -26,6 +36,10 @@ const TypeSelecter = () => {
     boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
     padding: "6px 8px",
   };
+
+  if(!currentData) {
+    return null;
+  }
 
   return (
     <>

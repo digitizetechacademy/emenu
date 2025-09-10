@@ -1,3 +1,4 @@
+'use client';
 import { createContext, useContext, useEffect, useState } from 'react';
 
 export const CartContext = createContext({});
@@ -27,6 +28,9 @@ export const CartProvider = ({ children }) => {
     if (cartItems.hasOwnProperty(itemId) && cartItems[itemId] > 0) {
       const tempCart = { ...cartItems };
       tempCart[itemId] -= 1;
+      if(tempCart[itemId] === 0) {
+        delete tempCart[itemId];
+      }
       setCartItems(tempCart);
     }
   };
@@ -58,8 +62,10 @@ export const CartProvider = ({ children }) => {
     const cartItemsList = Object.keys(cartItems);
     for (let i = 0; i < cartItemsList.length; i++) {
       let fullObj = allMenuItemsById[cartItemsList[i]];
-      fullObj['count'] = cartItems[cartItemsList[i]];
-      tempCompleItemsForCart.push(fullObj);
+      if(fullObj) {
+        fullObj['count'] = cartItems[cartItemsList[i]];
+        tempCompleItemsForCart.push(fullObj);
+      }
     }
     return tempCompleItemsForCart;
   };

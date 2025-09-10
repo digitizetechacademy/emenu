@@ -1,8 +1,9 @@
+'use client';
 import React, { useEffect, useState } from "react";
 import { useCartContext } from "../context/cart-context";
 import Modal from "../interface/Modal";
 import CartItem from "./CartItem";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams } from "next/navigation";
 import classes from "./Cart.module.css";
 import config from "../../data/config.json";
 
@@ -16,7 +17,7 @@ const Cart = (props) => {
     currentHotel,
   } = useCartContext();
   const [tableNumber, setTableNumber] = useState(-1);
-  const [searchParams] = useSearchParams();
+  const searchParams = useSearchParams();
   const [currentHotelConfig, setCurrentHotelConfig] = useState({});
 
   const hasItems = Object.keys(cartItems).some(
@@ -51,7 +52,9 @@ const Cart = (props) => {
   }, [searchParams]);
 
   useEffect(() => {
-    setCurrentHotelConfig(config[currentHotel]);
+    if(currentHotel) {
+        setCurrentHotelConfig(config[currentHotel]);
+    }
   }, [currentHotel]);
 
   const handleOrder = () => {

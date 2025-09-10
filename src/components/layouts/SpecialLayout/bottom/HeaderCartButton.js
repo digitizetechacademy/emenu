@@ -1,3 +1,4 @@
+'use client';
 import { useState, useEffect } from "react";
 
 import { useCartContext } from "../../../context/cart-context";
@@ -14,13 +15,13 @@ const HeaderCartButton = (props) => {
     setShowCart(true)
   };
 
-  // Cart Button Animation
   const botmNav = `${classes.botmNav}`;
   useEffect(() => {
     if (Object.keys(cartItems).length === 0) {
+      setTotalCartItems(0);
       return;
     }
-    setTotalCartItems(Object.keys(cartItems).reduce((pre, cur) => pre + cartItems[cur], 0));
+    setTotalCartItems(Object.values(cartItems).reduce((pre, cur) => pre + cur, 0));
   }, [cartItems]);
 
   return (

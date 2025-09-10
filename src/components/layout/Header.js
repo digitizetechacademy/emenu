@@ -1,3 +1,4 @@
+'use client';
 import { Fragment } from 'react';
 import Cart from "../cart/Cart";
 import classes from "./Header.module.css";

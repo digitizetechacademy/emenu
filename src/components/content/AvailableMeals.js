@@ -1,14 +1,16 @@
+'use client';
 import { useEffect, useState, useRef } from "react";
 import MealItem from "./MealItem";
 import classes from "./AvailableMeals.module.css";
 import { useCartContext } from "../context/cart-context";
-import { useParams } from "react-router-dom";
+import { useParams } from "next/navigation";
 import theGoldenSpoonMenu from "../../data/theGoldenSpoon.json";
 import configData from "../../data/config.json";
 import SubscriptionDialog from "../dialogs/SubscriptionDialog";
 import "./categories.css";
 
 const parseDate = (dateStr) => {
+  if (!dateStr) return null;
   const [day, month, year] = dateStr.split("/").map(Number);
   return new Date(year, month - 1, day);
 };
@@ -45,9 +47,9 @@ const AvailableMeals = () => {
       const trialEndDate = parseDate(currentData.trialEndDate);
 
       const isExpiryTodayOrPast =
-        todayDateOnly >= expiryDate && expiryDate > trialEndDate;
+        expiryDate && todayDateOnly >= expiryDate && expiryDate > trialEndDate;
       const isTrialEndTodayOrPast =
-        todayDateOnly >= trialEndDate &&
+        trialEndDate && todayDateOnly >= trialEndDate &&
         trialEndDate.getTime() === expiryDate.getTime();
 
       if (isTrialEndTodayOrPast) {
@@ -105,13 +107,10 @@ const AvailableMeals = () => {
   const handleItemsFilter = (cate) => {
     if (cate === "All") {
       setMeals(allMenuItems);
-      // setMealCate(cate)
     } else {
       setMeals(allMenuItems.filter((item) => item.category === cate));
-      // setMealCate(cate)
     }
     setSelectedCategory(cate);
-    // setMealCate(cate)
   };
 
   if (isLoading) {

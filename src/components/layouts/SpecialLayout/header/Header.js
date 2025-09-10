@@ -1,23 +1,24 @@
+'use client';
 import Cart from "../../../cart/Cart";
 import "../css/Header.css";
 import { useCartContext } from "../../../context/cart-context";
-// import configData from '../../../../data/config.json';
-import { useParams } from "react-router-dom";
+import { useParams } from "next/navigation";
 import TypeSelecter from "../../TypeSelecter";
+import Image from 'next/image';
 
 const formatName = (name) => {
+  if(typeof name !== 'string') return '';
   return name
-    .replace(/-/g, " ") // Replace hyphens with spaces
-    .split(" ") // Split the string into words
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()) // Capitalize each word
-    .join(" "); // Join the words back into a single string
+    .replace(/-/g, " ")
+    .split(" ")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+    .join(" ");
 };
 
 const Header = () => {
   const params = useParams();
   const hotelInUrl = params.hotel;
-  const formattedHotelName = formatName(hotelInUrl); // Format the hotel name
-  // const currentData = configData[hotelInUrl];
+  const formattedHotelName = formatName(hotelInUrl); 
 
   const { showCart, setShowCart } = useCartContext();
   const hideCartHandler = () => {
@@ -26,16 +27,6 @@ const Header = () => {
 
   return (
     <>
-      {/* <Fragment>
-        {showCart && <Cart hideCart={hideCartHandler} />}
-        <header className={classes.header}>
-          <h3>Digi Menu</h3>
-          {currentData.destination && <ChooseDestination />}
-        </header>
-        <div className={classes['main-image']}>
-        </div>
-      </Fragment> */}
-
       {showCart && <Cart hideCart={hideCartHandler} />}
       <header className="header navbar-area">
         <div className="header-middle">
@@ -43,9 +34,11 @@ const Header = () => {
             <div className="row align-items-center justify-content-center">
               <div className="col-lg-4 col-md-12 col-sm-12 d-flex justify-content-lg-start justify-content-center">
                 <div className="navbar-brand">
-                  <img
+                  <Image
                     src="/assets/images/logo/apnichanderi_logo.png"
                     alt="Logo"
+                    width={220}
+                    height={50}
                   />
                 </div>
               </div>

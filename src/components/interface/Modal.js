@@ -1,9 +1,20 @@
-import { Fragment } from "react";
+'use client';
+import { Fragment, useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 
 import classes from "./Modal.module.css";
 
 const Modal = props => {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return null;
+  }
+
   return (
     <Fragment>
       {ReactDOM.createPortal(

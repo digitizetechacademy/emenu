@@ -1,5 +1,6 @@
+'use client';
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams } from "next/navigation";
 import configData from "../../data/config.json";
 import DefaultLayout from "./DefaultLayout/DefaultLayout.js";
 import SpecialLayout from "./SpecialLayout/SpecialLayout.js";
@@ -12,7 +13,7 @@ const LayoutWrapper = ({ children }) => {
 
   let LayoutComponent;
 
-  switch (currentData.layout) {
+  switch (currentData?.layout) {
     case "special":
       LayoutComponent = SpecialLayout;
       break;
@@ -21,6 +22,10 @@ const LayoutWrapper = ({ children }) => {
       break;
     default:
       LayoutComponent = DefaultLayout;
+  }
+
+  if (!currentData) {
+    return <DefaultLayout>{children}</DefaultLayout>;
   }
 
   return <LayoutComponent>{children}</LayoutComponent>;

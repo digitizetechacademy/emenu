@@ -1,9 +1,17 @@
+'use client';
 import React, { useState, useEffect } from 'react';
 import { Button, ButtonGroup } from '@mui/material';
 import './Buttons.css';
 
 const ChooseDestination = () => {
-  const [selectedOption, setSelectedOption] = useState(sessionStorage.getItem('diningOption') || 'dine-in');
+  const [selectedOption, setSelectedOption] = useState('dine-in');
+
+  useEffect(() => {
+    const savedOption = sessionStorage.getItem('diningOption');
+    if (savedOption) {
+      setSelectedOption(savedOption);
+    }
+  }, []);
 
   useEffect(() => {
     sessionStorage.setItem('diningOption', selectedOption);
