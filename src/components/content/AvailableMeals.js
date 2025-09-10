@@ -1,7 +1,6 @@
 'use client';
 import { useEffect, useState, useRef } from "react";
 import MealItem from "./MealItem";
-import classes from "./AvailableMeals.module.css";
 import { useCartContext } from "../context/cart-context";
 import { useParams } from "next/navigation";
 import theGoldenSpoonMenu from "../../data/theGoldenSpoon.json";
@@ -115,48 +114,45 @@ const AvailableMeals = () => {
 
   if (isLoading) {
     return (
-      <section className={classes.mealsLoading}>
+      <section className="text-center p-8">
         <p>Loading...</p>
       </section>
     );
   }
 
   return (
-    <span className="">
-      <section className={classes.meals} style={{ paddingBottom: "10vh" }}>
-        <br />
-        <div
-          className="category-container mb-2"
-          ref={containerRef}
-          onWheel={handleScroll}
+    <section className="max-w-4xl mx-auto p-4 pb-24">
+      <div
+        className="category-container mb-4"
+        ref={containerRef}
+        onWheel={handleScroll}
+      >
+        <button
+          className={selectedCategory === "All" ? "active" : ""}
+          onClick={() => handleItemsFilter("All")}
         >
+          Show All Items
+        </button>
+        {categories.map((category) => (
           <button
-            className={selectedCategory === "All" ? "active" : ""}
-            onClick={() => handleItemsFilter("All")}
+            key={category}
+            className={selectedCategory === category ? "active" : ""}
+            onClick={() => handleItemsFilter(category)}
           >
-            Show All Items
+            {category}
           </button>
-          {categories.map((category) => (
-            <button
-              key={category}
-              className={selectedCategory === category ? "active" : ""}
-              onClick={() => handleItemsFilter(category)}
-            >
-              {category}
-            </button>
-          ))}
-        </div>
-        <div className="card">
-          <ul>{mealsList}</ul>
-        </div>
-      </section>
+        ))}
+      </div>
+      <div className="card">
+        <ul className="divide-y divide-gray-200">{mealsList}</ul>
+      </div>
 
       <SubscriptionDialog
         open={dialogOpen}
         freeTrialExpireToday={freeTrialExpireToday}
         subscriptionExpireToday={subscriptionExpireToday}
       />
-    </span>
+    </section>
   );
 };
 

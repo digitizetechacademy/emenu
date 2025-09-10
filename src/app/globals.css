@@ -14,8 +14,12 @@ html {
 
 body {
   margin: 0;
+  background-color: #f7fafc; /* Adding a light gray background */
 }
 
-.css-1kxd7on-MuiDialogContent-root {
-    overflow-y: inherit !important;
+.card {
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    padding: 1rem;
 }

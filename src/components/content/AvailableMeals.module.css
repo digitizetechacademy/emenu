@@ -1,7 +1,9 @@
+/* This file is no longer used, but kept for reference. All styles moved to Tailwind CSS classes in the component. */
 .meals {
   max-width: 60rem;
   width: 90%;
   margin: auto;
+  animation: meals-appear 1s ease-out forwards;
 }
 
 .meals ul {

@@ -1,3 +1,4 @@
+/* This file is no longer used, but kept for reference. All styles moved to Tailwind CSS classes in the component. */
 .backdrop {
   position: fixed;
   top: 0;
@@ -10,7 +11,7 @@
 
 .modal {
   position: fixed;
-  top: 15vh;
+  top: 20vh;
   left: 5%;
   width: 90%;
   background-color: white;
@@ -33,7 +34,6 @@
     opacity: 0;
     transform: translateY(-3rem);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);

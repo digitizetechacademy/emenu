@@ -1,6 +1,5 @@
 'use client';
 import { useCartContext } from "../context/cart-context";
-import classes from "./MealItem.module.css";
 import Image from "next/image";
 
 const MealItem = (props) => {
@@ -24,59 +23,49 @@ const MealItem = (props) => {
   };
 
   return (
-    <>
-      <li className={classes.meal}>
-        <div className="row m-auto">
-          <div className="col-7 m-auto">
-            <h3>{props.name}</h3>
-            {props.description ? <div className={classes.description}>{props.description}</div> : null}
-            <div className={classes.price}>{price}</div>
+    <li className="flex flex-col sm:flex-row justify-between items-center py-4 select-none">
+      <div className="flex-grow mb-4 sm:mb-0">
+        <h3 className="text-xl md:text-2xl font-bold mb-1">{props.name}</h3>
+        {props.description && <p className="text-sm md:text-base italic text-gray-600">{props.description}</p>}
+        <p className="text-lg md:text-xl font-bold text-orange-600 mt-1">{price}</p>
+      </div>
+      <div className="flex-shrink-0 flex flex-col items-center w-full sm:w-auto">
+        {props?.img && (
+          <div className="w-full sm:w-40 h-40 relative mb-2">
+            <Image 
+              className="rounded-lg object-cover" 
+              src={props.img} 
+              alt={props.alt || 'Meal item'} 
+              layout="fill"
+            />
           </div>
-          <div className="col-5 m-auto text-center">
-            {props?.img ? <Image className={classes.img} src={props.img} alt={props.alt || 'Meal item'} width={200} height={200} /> : null}
-            {selectedCount === 0 ? (
-              <span style={{ marginTop: "-2vh" }}>
-                <button onClick={() => handleCartCount(props.id, 'add')} className={classes.addBtn}>
-                  + Add
-                </button>
-              </span>
-            ) : (
-              <span className="d-flex " style={{ justifyContent: "center" }}>
-                <button
-                  style={{ paddingRight: "10px", paddingLeft: "10px" }}
-                  onClick={() => handleCartCount(props.id, 'remove')}
-                  className={classes.btn}
-                >
-                  -
-                </button>
-                <div
-                  style={{
-                    paddingRight: "5px",
-                    paddingLeft: "5px",
-                    fontSize: "1.3em",
-                    margin: "-2vh 10px 0px 10px",
-                    borderRadius: "50%",
-                    width: "30px",
-                    maxWidth: "30px",
-                    minWidth: "30px",
-                    backgroundColor: "white",
-                  }}
-                >
-                  {selectedCount}
-                </div>
-                <button
-                  style={{ paddingRight: "10px", paddingLeft: "10px" }}
-                  onClick={() => handleCartCount(props.id, 'add')}
-                  className={classes.btn}
-                >
-                  +
-                </button>
-              </span>
-            )}
+        )}
+        {selectedCount === 0 ? (
+          <button 
+            onClick={() => handleCartCount(props.id, 'add')} 
+            className="w-full sm:w-auto bg-orange-500 text-white font-bold py-2 px-6 rounded-full hover:bg-orange-600 transition-colors duration-300"
+          >
+            + Add
+          </button>
+        ) : (
+          <div className="flex items-center justify-center space-x-3 w-full sm:w-auto">
+            <button
+              onClick={() => handleCartCount(props.id, 'remove')}
+              className="bg-orange-500 text-white font-bold rounded-full h-10 w-10 flex items-center justify-center text-2xl hover:bg-orange-600 transition-colors duration-300"
+            >
+              -
+            </button>
+            <span className="text-xl font-bold w-10 text-center">{selectedCount}</span>
+            <button
+              onClick={() => handleCartCount(props.id, 'add')}
+              className="bg-orange-500 text-white font-bold rounded-full h-10 w-10 flex items-center justify-center text-2xl hover:bg-orange-600 transition-colors duration-300"
+            >
+              +
+            </button>
           </div>
-        </div>
-      </li>
-    </>
+        )}
+      </div>
+    </li>
   );
 };
 

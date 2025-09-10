@@ -1,52 +1,55 @@
 'use client';
 import { useState, useEffect } from "react";
-
 import { useCartContext } from "../context/cart-context";
 import { FaCaretRight } from "react-icons/fa";
-
 import CartIcon from "../cart/CartIcon";
-import classes from "./HeaderCartButton.module.css";
 
 const HeaderCartButton = (props) => {
   const { cartItems, setShowCart } = useCartContext();
   const [totalCartItems, setTotalCartItems] = useState(0);
-  
+  const [isBumping, setIsBumping] = useState(false);
+
   const clickHandler = () => {
-    setShowCart(true)
+    setShowCart(true);
   };
 
-  // Cart Button Animation
-  const botmNav = `${classes.botmNav}`;
   useEffect(() => {
-    if (Object.keys(cartItems).length === 0) {
-      setTotalCartItems(0);
-      return;
+    const numberOfCartItems = Object.values(cartItems).reduce((curNumber, item) => {
+      return curNumber + item;
+    }, 0);
+    setTotalCartItems(numberOfCartItems);
+
+    if (numberOfCartItems > 0) {
+      setIsBumping(true);
+      const timer = setTimeout(() => {
+        setIsBumping(false);
+      }, 300);
+      return () => {
+        clearTimeout(timer);
+      };
     }
-    setTotalCartItems(Object.values(cartItems).reduce((pre, cur) => pre + cur, 0));
   }, [cartItems]);
 
+  const btnClasses = `fixed bottom-0 left-0 w-full bg-gray-800 text-white cursor-pointer flex justify-between items-center p-3 md:p-4 shadow-lg z-20 ${isBumping ? 'animate-bump' : ''}`;
+
   return (
-    <>
-      <div className={botmNav}>
-        <div onClick={clickHandler} className="row w-100 p-0">
-          <div className="col-9 m-auto p-0">
-            <button className={classes.buttonRight}>
-              <span className={classes.icon}>
-                <CartIcon />
-              </span>
-              <span className={classes.cart}>Items</span>
-              <span className={classes.badge}>{totalCartItems}</span>
-            </button>
-          </div>
-          <div className="col-3 m-auto text-end p-0">
-            <button className={classes.buttonLeft}>
-              <span>Order </span>
-              <span><FaCaretRight /></span>
-            </button>
-          </div>
-        </div>
+    <div onClick={clickHandler} className={btnClasses}>
+      <div className="flex items-center space-x-3">
+        <span className="w-6 h-6">
+          <CartIcon />
+        </span>
+        <span className="text-base md:text-lg font-bold">Your Cart</span>
+        <span className="bg-orange-500 text-white text-sm font-bold rounded-full px-3 py-1">
+          {totalCartItems}
+        </span>
       </div>
-    </>
+      <div className="flex items-center space-x-2">
+        <span className="text-base md:text-lg font-bold">Order</span>
+        <span>
+          <FaCaretRight />
+        </span>
+      </div>
+    </div>
   );
 };
 
