@@ -11,11 +11,14 @@ const Checkout = props => {
   });
 
   const nameInputRef = useRef();
+  const instructionsInputRef = useRef();
 
   const confirmHandler = event => {
     event.preventDefault();
 
     const enteredName = nameInputRef.current.value;
+    const enteredInstructions = instructionsInputRef.current.value;
+
     const enteredNameIsValid = !isEmpty(enteredName);
 
     setFormValidity({
@@ -29,6 +32,7 @@ const Checkout = props => {
     }
     props.onConfirm({
       name: enteredName,
+      instructions: enteredInstructions
     });
   };
 
@@ -40,6 +44,10 @@ const Checkout = props => {
         <label htmlFor='name'>Your Name</label>
         <input ref={nameInputRef} type='text' id='name' />
         {!formValidity.name && <p>Please enter a valid name!</p>}
+      </div>
+      <div className={classes.control}>
+        <label htmlFor='instructions'>Special Instructions (Optional)</label>
+        <textarea ref={instructionsInputRef} id='instructions' rows='2'></textarea>
       </div>
       <div className={classes.actions}>
         <button

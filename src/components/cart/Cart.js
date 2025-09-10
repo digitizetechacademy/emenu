@@ -79,7 +79,13 @@ const Cart = (props) => {
           item.count
         } = ₹${item.price * item.count}%0a%0a`;
       });
-    orderWhatsAppMessage += `Total order value : ₹${totalAmount}%0a%0aHope you're having a great dining at ${currentHotelConfig.name}, Thanks.`;
+    orderWhatsAppMessage += `Total order value : ₹${totalAmount}%0a%0a`;
+
+    if (userData.instructions && userData.instructions.trim() !== '') {
+      orderWhatsAppMessage += `Special Instructions: ${userData.instructions}%0a%0a`;
+    }
+
+    orderWhatsAppMessage += `Hope you're having a great dining at ${currentHotelConfig.name}, Thanks.`;
     window.open(orderWhatsAppMessage, "_blank");
     props.hideCart();
   }

@@ -1,6 +1,6 @@
 .form {
   margin: 1rem 0;
-  height: 12rem;
+  height: auto;
   overflow: auto;
 }
 
@@ -14,7 +14,8 @@
   display: block;
 }
 
-.control input {
+.control input,
+.control textarea {
   font: inherit;
   border: 1px solid #ccc;
   border-radius: 4px;
