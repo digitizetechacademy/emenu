@@ -1,0 +1,26 @@
+[
+  {
+    "id": "tgs1",
+    "img": null,
+    "name": "Golden Soup",
+    "description": "A rich and hearty vegetable soup.",
+    "price": 120,
+    "category": "Soups"
+  },
+  {
+    "id": "tgs2",
+    "img": null,
+    "name": "Spoon-tastic Steak",
+    "description": "A delicious plant-based steak.",
+    "price": 350,
+    "category": "Main Course"
+  },
+  {
+    "id": "tgs3",
+    "img": null,
+    "name": "Gilded Fries",
+    "description": "Perfectly crisp golden fries.",
+    "price": 90,
+    "category": "Starters"
+  }
+]

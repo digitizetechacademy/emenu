@@ -1,0 +1,62 @@
+{
+  "dev": {
+    "whatsapp": "6265323177",
+    "name": "Dev - Hotel and Restaurant",
+    "subscriptionDate": "01/08/2024",
+    "expiryDate": "01/10/2027",
+    "trialEndDate": "01/10/2024",
+    "layout": "basic",
+    "destination": false,
+    "menuType": "veg"
+  },
+  "whimsyBean": {
+    "whatsapp": "6265323177",
+    "name": "Whimsy Bean Café",
+    "subscriptionDate": "01/08/2024",
+    "expiryDate": "01/10/2027",
+    "trialEndDate": "01/10/2024",
+    "layout": "basic",
+    "destination": false,
+    "menuType": "veg"
+  },
+  "shrestha": {
+    "whatsapp": "7692876829",
+    "name": "Shrestha's - Cafe & Restaurant",
+    "subscriptionDate": "31/08/2024",
+    "expiryDate": "30/10/2025",
+    "trialEndDate": "30/10/2024",
+    "layout": "special",
+    "destination": false,
+    "menuType": "veg"
+  },
+  "foddies-heaven": {
+    "whatsapp": "9201339020",
+    "name": "Foddie's Heaven",
+    "subscriptionDate": "31/08/2024",
+    "expiryDate": "30/10/2025",
+    "trialEndDate": "30/10/2025",
+    "layout": "basic",
+    "destination": false,
+    "menuType": "veg"
+  },
+  "river-rine": {
+    "whatsapp": "9165573646",
+    "name": "River Rine Restaurant",
+    "subscriptionDate": "31/08/2024",
+    "expiryDate": "30/10/2025",
+    "trialEndDate": "30/10/2025",
+    "layout": "basic",
+    "destination": false,
+    "menuType": "veg"
+  },
+  "the-golden-spoon": {
+    "whatsapp": "1234567890",
+    "name": "The Golden Spoon",
+    "subscriptionDate": "01/08/2024",
+    "expiryDate": "01/10/2027",
+    "trialEndDate": "01/10/2024",
+    "layout": "default",
+    "destination": false,
+    "menuType": "veg"
+  }
+}

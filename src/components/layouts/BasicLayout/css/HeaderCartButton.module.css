@@ -1,0 +1,111 @@
+.botmNav {
+  position: fixed;
+  cursor: pointer;
+  font: inherit;
+  border: none;
+  background-color: #FF5722;
+  color: white;
+  padding: 0.75rem 3rem;
+  display: flex;
+  align-items: center;
+  border-radius: 0px;
+  font-weight: bold;
+  bottom: 0;
+  margin: 0;
+  width: 100%;
+  display: flex;
+}
+
+.buttonRight {
+  font: inherit;
+  background-color: transparent;
+  color: white;
+  align-items: center;
+  border-radius: 4px;
+  font-weight: bold;
+  display: flex;
+  border: 0;
+}
+
+.buttonLeft {
+  font: inherit;
+  background-color: #FF5722;
+  color: white;
+  align-items: center;
+  border-radius: 4px;
+  font-weight: bold;
+  border: 0;
+}
+
+.button:hover,
+.button:active {
+  background-color: #FF5722;
+}
+
+.icon {
+  width: 1.35rem;
+  height: 1.35rem;
+  margin-right: 0.5rem;
+}
+
+.badge {
+  background-color: #FF5722;
+  padding: 0.25rem 1rem;
+  border-radius: 25px;
+  margin-left: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.button:hover .badge,
+.button:active .badge {
+  background-color: #FF5722;
+}
+
+.cart {
+  font-size: 18px;
+  padding: 2px;
+}
+
+.bump {
+  animation: bump 300ms ease-out;
+}
+
+@keyframes bump {
+  0% {
+    transform: scale(1);
+  }
+
+  10% {
+    transform: scale(0.9);
+  }
+
+  30% {
+    transform: scale(1.1);
+  }
+
+  50% {
+    transform: scale(1.15);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .buttonRight {
+    padding: 0;
+    font-size: 8px;
+  }
+
+  .cart {
+    font-size: 12px;
+    padding: 1px;
+  }
+
+  .buttonLeft {
+    padding: 0;
+    font-size: 14px;
+  }
+}
