@@ -6,6 +6,7 @@ import CartItem from "./CartItem";
 import { useSearchParams } from "next/navigation";
 import classes from "./Cart.module.css";
 import config from "../../data/config.json";
+import Checkout from "./Checkout";
 
 const Cart = (props) => {
   const {
@@ -19,6 +20,7 @@ const Cart = (props) => {
   const [tableNumber, setTableNumber] = useState(-1);
   const searchParams = useSearchParams();
   const [currentHotelConfig, setCurrentHotelConfig] = useState({});
+  const [isCheckout, setIsCheckout] = useState(false);
 
   const hasItems = Object.keys(cartItems).some(
     (itemId) => cartItems[itemId] > 0
@@ -58,13 +60,18 @@ const Cart = (props) => {
   }, [currentHotel]);
 
   const handleOrder = () => {
+    setIsCheckout(true);
+  };
+
+  const submitOrderHandler = (userData) => {
     let tableDetail = "";
     if (tableNumber > 0) {
       tableDetail = `on Table: ${tableNumber}`;
     } else if (searchParams.get("custom_table_name")) {
       tableDetail = `on Table: ${searchParams.get("custom_table_name")}`;
     }
-    let orderWhatsAppMessage = `https://api.whatsapp.com/send/?phone=+91${currentHotelConfig.whatsapp}&text=New Order ${tableDetail}%0a%0a`;
+    
+    let orderWhatsAppMessage = `https://api.whatsapp.com/send/?phone=+91${currentHotelConfig.whatsapp}&text=New Order from ${userData.name} ${tableDetail}%0a%0a`;
     cartItemsAllDetails()
       .filter((item) => item.count > 0)
       .forEach((item) => {
@@ -74,7 +81,8 @@ const Cart = (props) => {
       });
     orderWhatsAppMessage += `Total order value : ₹${totalAmount}%0a%0aHope you're having a great dining at ${currentHotelConfig.name}, Thanks.`;
     window.open(orderWhatsAppMessage, "_blank");
-  };
+    props.hideCart();
+  }
 
   const cartItemsRendered = cartItemsAllDetails()
     .filter((item) => item.count > 0)
@@ -109,7 +117,8 @@ const Cart = (props) => {
         <span>Total Amount</span>
         <span>₹{totalAmount}</span>
       </div>
-      {modalActions}
+      {isCheckout && <Checkout onConfirm={submitOrderHandler} onCancel={props.hideCart} />}
+      {!isCheckout && modalActions}
     </React.Fragment>
   );
 
