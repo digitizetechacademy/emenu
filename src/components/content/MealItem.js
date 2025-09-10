@@ -35,7 +35,7 @@ const MealItem = (props) => {
               className="rounded-lg object-cover" 
               src={props.img} 
               alt={props.alt || 'Meal item'} 
-              layout="fill"
+              fill
             />
           </div>
         )}
