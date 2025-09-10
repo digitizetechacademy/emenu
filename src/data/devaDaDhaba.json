@@ -22,5 +22,37 @@
     "description": "Classic whole wheat bread cooked in a tandoor.",
     "price": 20,
     "category": "Breads"
+  },
+  {
+    "id": "dkd4",
+    "img": null,
+    "name": "Chicken Tikka",
+    "description": "Tender chicken pieces marinated in spices and grilled.",
+    "price": 250,
+    "category": "Starters"
+  },
+  {
+    "id": "dkd5",
+    "img": null,
+    "name": "Dal Makhani",
+    "description": "Creamy black lentils cooked with butter and spices.",
+    "price": 180,
+    "category": "Main Course"
+  },
+  {
+    "id": "dkd6",
+    "img": null,
+    "name": "Jeera Rice",
+    "description": "Basmati rice flavored with cumin seeds.",
+    "price": 120,
+    "category": "Rice"
+  },
+  {
+    "id": "dkd7",
+    "img": null,
+    "name": "Lassi",
+    "description": "A refreshing yogurt-based drink, sweet or salty.",
+    "price": 60,
+    "category": "Beverages"
   }
 ]
