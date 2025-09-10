@@ -1,71 +1,159 @@
 'use client';
-import Cart from "../../../cart/Cart";
-import "../css/Header.css";
-import { useCartContext } from "../../../context/cart-context";
+import { useEffect, useState, useRef } from "react";
+import MealItem from "./MealItem";
+import { useCartContext } from "../context/cart-context";
 import { useParams } from "next/navigation";
-import TypeSelecter from "../../TypeSelecter";
-import Image from 'next/image';
+import theGoldenSpoonMenu from "../../data/theGoldenSpoon.json";
+import configData from "../../data/config.json";
+import SubscriptionDialog from "../dialogs/SubscriptionDialog";
+import "./categories.css";
 
-const formatName = (name) => {
-  if(typeof name !== 'string') return '';
-  return name
-    .replace(/-/g, " ")
-    .split(" ")
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-    .join(" ");
+const parseDate = (dateStr) => {
+  if (!dateStr) return null;
+  const [day, month, year] = dateStr.split("/").map(Number);
+  return new Date(year, month - 1, day);
 };
 
-const Header = () => {
+const AvailableMeals = () => {
+  const containerRef = useRef(null);
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  const { allMenuItems, setAllMenuItems, setCurrentHotel } = useCartContext();
+  const [meals, setMeals] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [freeTrialExpireToday, setFreeTrialExpireToday] = useState(false);
+  const [subscriptionExpireToday, setSubscriptionExpireToday] = useState(false);
   const params = useParams();
   const hotelInUrl = params.hotel;
-  const formattedHotelName = formatName(hotelInUrl); 
 
-  const { showCart, setShowCart } = useCartContext();
-  const hideCartHandler = () => {
-    setShowCart(false);
+  const handleScroll = (e) => {
+    if (containerRef.current) {
+      containerRef.current.scrollLeft += e.deltaY;
+    }
   };
 
+  useEffect(() => {
+    const today = new Date();
+    const currentData = configData[hotelInUrl];
+    if (currentData) {
+      const todayDateOnly = new Date(
+        today.getFullYear(),
+        today.getMonth(),
+        today.getDate()
+      );
+      const expiryDate = parseDate(currentData.expiryDate);
+      const trialEndDate = parseDate(currentData.trialEndDate);
+
+      const isExpiryTodayOrPast =
+        expiryDate && todayDateOnly >= expiryDate && expiryDate > trialEndDate;
+      const isTrialEndTodayOrPast =
+        trialEndDate && todayDateOnly >= trialEndDate &&
+        trialEndDate.getTime() === expiryDate.getTime();
+
+      if (isTrialEndTodayOrPast) {
+        setFreeTrialExpireToday(true);
+        setSubscriptionExpireToday(false);
+      } else if (isExpiryTodayOrPast) {
+        setSubscriptionExpireToday(true);
+        setFreeTrialExpireToday(false);
+      } else {
+        setSubscriptionExpireToday(false);
+        setFreeTrialExpireToday(false);
+      }
+
+      if (hotelInUrl === "the-golden-spoon") {
+        setAllMenuItems(theGoldenSpoonMenu);
+        setCurrentHotel("the-golden-spoon");
+      }
+    }
+  }, [params.hotel, setAllMenuItems, setCurrentHotel, hotelInUrl]);
+
+  useEffect(() => {
+    if (allMenuItems.length > 0) {
+      setMeals(allMenuItems);
+      const filteredCategories = [];
+      allMenuItems.forEach((item) => {
+        if (item.category && !filteredCategories.includes(item.category)) {
+          filteredCategories.push(item.category);
+        }
+      });
+      setCategories(filteredCategories);
+      setIsLoading(false);
+    }
+  }, [allMenuItems]);
+
+  useEffect(() => {
+    if (subscriptionExpireToday || freeTrialExpireToday) {
+      setDialogOpen(true);
+    } else {
+      setDialogOpen(false);
+    }
+  }, [subscriptionExpireToday, freeTrialExpireToday]);
+
+  const mealsList = meals.map((meal) => (
+    <MealItem
+      id={meal.id}
+      key={meal.id}
+      img={meal.img}
+      alt={meal.alt}
+      name={meal.name}
+      description={meal.description}
+      price={meal.price}
+    />
+  ));
+
+  const handleItemsFilter = (cate) => {
+    if (cate === "All") {
+      setMeals(allMenuItems);
+    } else {
+      setMeals(allMenuItems.filter((item) => item.category === cate));
+    }
+    setSelectedCategory(cate);
+  };
+
+  if (isLoading) {
+    return (
+      <section className="text-center p-8">
+        <p>Loading...</p>
+      </section>
+    );
+  }
+
   return (
-    <>
-      {showCart && <Cart hideCart={hideCartHandler} />}
-      <header className="header navbar-area">
-        <div className="header-middle">
-          <div className="container">
-            <div className="row align-items-center justify-content-center">
-              <div className="col-lg-4 col-md-12 col-sm-12 d-flex justify-content-lg-start justify-content-center">
-                <div className="navbar-brand">
-                  <Image
-                    src="/assets/images/logo/apnichanderi_logo.png"
-                    alt="Logo"
-                    width={220}
-                    height={50}
-                  />
-                </div>
-              </div>
-              <div className="col-lg-8 col-md-12 col-sm-12 d-flex justify-content-between">
-                <div className="col-lg-6 col-md-6 col-sm-8 d-flex justify-content-lg-center justify-content-md-start justify-content-sm-start">
-                  <div className="main-menu-search">
-                    <nav className="navbar navbar-expand-lg">
-                      <h1 className="m-0 text-capitalize custom-font">
-                        {formattedHotelName}
-                      </h1>
-                    </nav>
-                  </div>
-                </div>
-                <div className="col-lg-3 col-md-3 col-sm-3 d-flex justify-content-end align-items-center">
-                  <div className="middle-right-area">
-                    <div className="navbar-cart">
-                      <TypeSelecter />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </header>
-    </>
+    <section className="max-w-4xl mx-auto p-4 pb-24">
+      <div
+        className="category-container mb-4"
+        ref={containerRef}
+        onWheel={handleScroll}
+      >
+        <button
+          className={selectedCategory === "All" ? "active" : ""}
+          onClick={() => handleItemsFilter("All")}
+        >
+          Show All Items
+        </button>
+        {categories.map((category) => (
+          <button
+            key={category}
+            className={selectedCategory === category ? "active" : ""}
+            onClick={() => handleItemsFilter(category)}
+          >
+            {category}
+          </button>
+        ))}
+      </div>
+      <div className="card">
+        <ul className="divide-y divide-gray-200">{mealsList}</ul>
+      </div>
+
+      <SubscriptionDialog
+        open={dialogOpen}
+        freeTrialExpireToday={freeTrialExpireToday}
+        subscriptionExpireToday={subscriptionExpireToday}
+      />
+    </section>
   );
 };
 
-export default Header;
+export default AvailableMeals;

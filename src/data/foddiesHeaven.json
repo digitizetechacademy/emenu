@@ -1,906 +1,159 @@
-[
-    {
-        "id": "1",
-        "img": null,
-        "name": "Noodles",
-        "description": "",
-        "price": 90,
-        "category": "Chinese"
-    },
-    {
-        "id": "2",
-        "img": null,
-        "name": "Hakka Noodles",
-        "description": "",
-        "price": 90,
-        "category": "Chinese"
-    },
-    {
-        "id": "3",
-        "img": null,
-        "name": "Schezwan Noodles",
-        "description": "",
-        "price": 100,
-        "category": "Chinese"
-    },
-    {
-        "id": "4",
-        "img": null,
-        "name": "Singapore Noodles",
-        "description": "",
-        "price": 120,
-        "category": "Chinese"
-    },
-    {
-        "id": "5",
-        "img": null,
-        "name": "Manchurian Dry",
-        "description": "",
-        "price": 80,
-        "category": "Chinese"
-    },
-    {
-        "id": "6",
-        "img": null,
-        "name": "Manchurian Gravy",
-        "description": "",
-        "price": 90,
-        "category": "Chinese"
-    },
-    {
-        "id": "7",
-        "img": null,
-        "name": "Fried Rice",
-        "description": "",
-        "price": 100,
-        "category": "Chinese"
-    },
-    {
-        "id": "8",
-        "img": null,
-        "name": "Schezwan Fried Rice",
-        "description": "",
-        "price": 110,
-        "category": "Chinese"
-    },
-    {
-        "id": "9",
-        "img": null,
-        "name": "Manchurian Fried Rice",
-        "description": "",
-        "price": 130,
-        "category": "Chinese"
-    },
-    {
-        "id": "10",
-        "img": null,
-        "name": "Chilli Paneer Dry",
-        "description": "",
-        "price": 120,
-        "category": "Chinese"
-    },
-    {
-        "id": "11",
-        "img": null,
-        "name": "Chilli Paneer Gravy",
-        "description": "",
-        "price": 130,
-        "category": "Chinese"
-    },
-    {
-        "id": "12",
-        "img": null,
-        "name": "Veg Kothe",
-        "description": "",
-        "price": 110,
-        "category": "Chinese"
-    },
-    {
-        "id": "13",
-        "img": null,
-        "name": "Crispy Corn",
-        "description": "",
-        "price": 100,
-        "category": "Chinese"
-    },
-    {
-        "id": "14",
-        "img": null,
-        "name": "Chinese All Mix",
-        "description": "",
-        "price": 150,
-        "category": "Chinese"
-    },
-    {
-        "id": "15",
-        "img": null,
-        "name": "Paneer 65",
-        "description": "",
-        "price": 130,
-        "category": "Chinese"
-    },
-    {
-        "id": "16",
-        "img": null,
-        "name": "Chilli Chana",
-        "description": "",
-        "price": 110,
-        "category": "Chinese"
-    },
-    {
-        "id": "17",
-        "img": null,
-        "name": "French Fries",
-        "description": "",
-        "price": 90,
-        "category": "Snacks"
-    },
-    {
-        "id": "18",
-        "img": null,
-        "name": "Peri Peri Fries",
-        "description": "",
-        "price": 100,
-        "category": "Snacks"
-    },
-    {
-        "id": "19",
-        "img": null,
-        "name": "Cheese Fries",
-        "description": "",
-        "price": 110,
-        "category": "Snacks"
-    },
-    {
-        "id": "20",
-        "img": null,
-        "name": "Chana Roast",
-        "description": "",
-        "price": 90,
-        "category": "Snacks"
-    },
-    {
-        "id": "21",
-        "img": null,
-        "name": "Paneer Pakoda",
-        "description": "",
-        "price": 130,
-        "category": "Snacks"
-    },
-    {
-        "id": "22",
-        "img": null,
-        "name": "Cold Coffee",
-        "description": "",
-        "price": 80,
-        "category": "Shakes"
-    },
-    {
-        "id": "23",
-        "img": null,
-        "name": "Cold Coffee with Ice Cream",
-        "description": "",
-        "price": 100,
-        "category": "Shakes"
-    },
-    {
-        "id": "24",
-        "img": null,
-        "name": "Vanilla Shake",
-        "description": "",
-        "price": 70,
-        "category": "Shakes"
-    },
-    {
-        "id": "25",
-        "img": null,
-        "name": "Chocolate Shake",
-        "description": "",
-        "price": 90,
-        "category": "Shakes"
-    },
-    {
-        "id": "26",
-        "img": null,
-        "name": "Oreo Shake",
-        "description": "",
-        "price": 100,
-        "category": "Shakes"
-    },
-    {
-        "id": "27",
-        "img": null,
-        "name": "Kit Kat Shake",
-        "description": "",
-        "price": 110,
-        "category": "Shakes"
-    },
-    {
-        "id": "28",
-        "img": null,
-        "name": "Butter Scotch Shake",
-        "description": "",
-        "price": 120,
-        "category": "Shakes"
-    },
-    {
-        "id": "29",
-        "img": null,
-        "name": "Lassi",
-        "description": "",
-        "price": 40,
-        "category": "Shakes"
-    },
-    {
-        "id": "30",
-        "img": null,
-        "name": "White Sauce Pasta",
-        "description": "",
-        "price": 120,
-        "category": "Italian"
-    },
-    {
-        "id": "31",
-        "img": null,
-        "name": "Red Sauce Pasta",
-        "description": "",
-        "price": 100,
-        "category": "Italian"
-    },
-    {
-        "id": "32",
-        "img": null,
-        "name": "Veg Pizza",
-        "description": "",
-        "price": 130,
-        "category": "Italian"
-    },
-    {
-        "id": "33",
-        "img": null,
-        "name": "Cheese Pizza",
-        "description": "",
-        "price": 150,
-        "category": "Italian"
-    },
-    {
-        "id": "34",
-        "img": null,
-        "name": "Cheese Corn Pizza",
-        "description": "",
-        "price": 160,
-        "category": "Italian"
-    },
-    {
-        "id": "35",
-        "img": null,
-        "name": "Paneer Cheese Pizza",
-        "description": "",
-        "price": 170,
-        "category": "Italian"
-    },
-    {
-        "id": "36",
-        "img": null,
-        "name": "Foodies Heaven Special Pizza",
-        "description": "(Corn, Olive, Tomato, Capsicum, Extra Paneer)",
-        "price": 220,
-        "category": "Italian"
-    },
-    {
-        "id": "37",
-        "img": null,
-        "name": "Chocolate Cheese Sandwich",
-        "description": "",
-        "price": 100,
-        "category": "Sandwich"
-    },
-    {
-        "id": "38",
-        "img": null,
-        "name": "Veg Sandwich",
-        "description": "",
-        "price": 50,
-        "category": "Sandwich"
-    },
-    {
-        "id": "39",
-        "img": null,
-        "name": "Cheese Sandwich",
-        "description": "",
-        "price": 70,
-        "category": "Sandwich"
-    },
-    {
-        "id": "40",
-        "img": null,
-        "name": "Veg Grilled Sandwich",
-        "description": "",
-        "price": 60,
-        "category": "Sandwich"
-    },
-    {
-        "id": "41",
-        "img": null,
-        "name": "Aloo Masala Sandwich",
-        "description": "",
-        "price": 50,
-        "category": "Sandwich"
-    },
-    {
-        "id": "42",
-        "img": null,
-        "name": "Paneer Cheese Sandwich",
-        "description": "",
-        "price": 90,
-        "category": "Sandwich"
-    },
-    {
-        "id": "43",
-        "img": null,
-        "name": "Cheese Corn Sandwich",
-        "description": "",
-        "price": 80,
-        "category": "Sandwich"
-    },
-    {
-        "id": "44",
-        "img": null,
-        "name": "Chocolate Sandwich",
-        "description": "",
-        "price": 80,
-        "category": "Sandwich"
-    },
-    {
-        "id": "45",
-        "img": null,
-        "name": "Veg Burger",
-        "description": "",
-        "price": 50,
-        "category": "Sandwich"
-    },
-    {
-        "id": "46",
-        "img": null,
-        "name": "Veg Cheese Burger",
-        "description": "",
-        "price": 70,
-        "category": "Sandwich"
-    },
-    {
-        "id": "47",
-        "img": null,
-        "name": "Cheese Burger",
-        "description": "",
-        "price": 60,
-        "category": "Sandwich"
-    },
-    {
-        "id": "48",
-        "img": null,
-        "name": "Aloo Tikli Burger",
-        "description": "",
-        "price": 70,
-        "category": "Sandwich"
-    },
-    {
-        "id": "49",
-        "img": null,
-        "name": "Paneer Cheese Burger",
-        "description": "",
-        "price": 90,
-        "category": "Sandwich"
-    },
-    {
-        "id": "50",
-        "img": null,
-        "name": "Aloo Chola",
-        "description": "",
-        "price": 120,
-        "category": "Indian Main Course"
-    },
-    {
-        "id": "51",
-        "img": null,
-        "name": "Chana Masala",
-        "description": "",
-        "price": 120,
-        "category": "Indian Main Course"
-    },
-    {
-        "id": "52",
-        "img": null,
-        "name": "Aloo Jeera",
-        "description": "",
-        "price": 100,
-        "category": "Indian Main Course"
-    },
-    {
-        "id": "53",
-        "img": null,
-        "name": "Matar Masala",
-        "description": "",
-        "price": 120,
-        "category": "Indian Main Course"
-    },
-    {
-        "id": "54",
-        "img": null,
-        "name": "Aloo Matar",
-        "description": "",
-        "price": 110,
-        "category": "Indian Main Course"
-    },
-    {
-        "id": "55",
-        "img": null,
-        "name": "Kaju Curry",
-        "description": "",
-        "price": 170,
-        "category": "Indian Main Course"
-    },
-    {
-        "id": "56",
-        "img": null,
-        "name": "Dum Aloo",
-        "description": "",
-        "price": 130,
-        "category": "Indian Main Course"
-    },
-    {
-        "id": "57",
-        "img": null,
-        "name": "Gobhi Matar",
-        "description": "",
-        "price": 110,
-        "category": "Indian Main Course"
-    },
-    {
-        "id": "58",
-        "img": null,
-        "name": "Aloo Gobhi",
-        "description": "",
-        "price": 110,
-        "category": "Indian Main Course"
-    },
-    {
-        "id": "59",
-        "img": null,
-        "name": "Gobhi Masala",
-        "description": "",
-        "price": 100,
-        "category": "Indian Main Course"
-    },
-    {
-        "id": "60",
-        "img": null,
-        "name": "Bhindi Masala",
-        "description": "",
-        "price": 100,
-        "category": "Indian Main Course"
-    },
-    {
-        "id": "61",
-        "img": null,
-        "name": "Mix Veg",
-        "description": "",
-        "price": 130,
-        "category": "Indian Main Course"
-    },
-    {
-        "id": "62",
-        "img": null,
-        "name": "Tamatar Masala",
-        "description": "",
-        "price": 100,
-        "category": "Indian Main Course"
-    },
-    {
-        "id": "63",
-        "img": null,
-        "name": "Paneer Masala",
-        "description": "",
-        "price": 150,
-        "category": "Paneer Special"
-    },
-    {
-        "id": "64",
-        "img": null,
-        "name": "Shahi Paneer",
-        "description": "",
-        "price": 170,
-        "category": "Paneer Special"
-    },
-    {
-        "id": "65",
-        "img": null,
-        "name": "Paneer Butter",
-        "description": "",
-        "price": 160,
-        "category": "Paneer Special"
-    },
-    {
-        "id": "66",
-        "img": null,
-        "name": "Kaju Paneer",
-        "description": "",
-        "price": 180,
-        "category": "Paneer Special"
-    },
-    {
-        "id": "67",
-        "img": null,
-        "name": "Matar Paneer",
-        "description": "",
-        "price": 160,
-        "category": "Paneer Special"
-    },
-    {
-        "id": "68",
-        "img": null,
-        "name": "Paneer Handi",
-        "description": "",
-        "price": 160,
-        "category": "Paneer Special"
-    },
-    {
-        "id": "69",
-        "img": null,
-        "name": "Chhole Paneer",
-        "description": "",
-        "price": 160,
-        "category": "Paneer Special"
-    },
-    {
-        "id": "70",
-        "img": null,
-        "name": "Paneer Lababdar",
-        "description": "",
-        "price": 220,
-        "category": "Paneer Special"
-    },
-    {
-        "id": "71",
-        "img": null,
-        "name": "Kadhai Paneer",
-        "description": "",
-        "price": 170,
-        "category": "Paneer Special"
-    },
-    {
-        "id": "72",
-        "img": null,
-        "name": "Paneer Bhurji",
-        "description": "",
-        "price": 200,
-        "category": "Paneer Special"
-    },
-    {
-        "id": "73",
-        "img": null,
-        "name": "Punjabi Paneer",
-        "description": "",
-        "price": 170,
-        "category": "Paneer Special"
-    },
-    {
-        "id": "74",
-        "img": null,
-        "name": "Paneer Tikka Masala",
-        "description": "",
-        "price": 200,
-        "category": "Paneer Special"
-    },
-    {
-        "id": "75",
-        "img": null,
-        "name": "Masala Maggie",
-        "description": "",
-        "price": 40,
-        "category": "Maggie"
-    },
-    {
-        "id": "76",
-        "img": null,
-        "name": "Veg Maggie",
-        "description": "",
-        "price": 60,
-        "category": "Maggie"
-    },
-    {
-        "id": "77",
-        "img": null,
-        "name": "Cheese Maggie",
-        "description": "",
-        "price": 70,
-        "category": "Maggie"
-    },
-    {
-        "id": "78",
-        "img": null,
-        "name": "Boondi Raita",
-        "description": "",
-        "price": 50,
-        "category": "Raita"
-    },
-    {
-        "id": "79",
-        "img": null,
-        "name": "Veg Raita",
-        "description": "",
-        "price": 60,
-        "category": "Raita"
-    },
-    {
-        "id": "80",
-        "img": null,
-        "name": "Plain Curd",
-        "description": "",
-        "price": 50,
-        "category": "Raita"
-    },
-    {
-        "id": "81",
-        "img": null,
-        "name": "Tomato Salad",
-        "description": "",
-        "price": 30,
-        "category": "Salad"
-    },
-    {
-        "id": "82",
-        "img": null,
-        "name": "Cucumber Salad",
-        "description": "",
-        "price": 30,
-        "category": "Salad"
-    },
-    {
-        "id": "83",
-        "img": null,
-        "name": "Kuchumber Salad",
-        "description": "",
-        "price": 40,
-        "category": "Salad"
-    },
-    {
-        "id": "84",
-        "img": null,
-        "name": "Green Salad",
-        "description": "",
-        "price": 50,
-        "category": "Salad"
-    },
-    {
-        "id": "85",
-        "img": null,
-        "name": "Onion Salad",
-        "description": "",
-        "price": 20,
-        "category": "Salad"
-    },
-    {
-        "id": "86",
-        "img": null,
-        "name": "Dry Papad",
-        "description": "",
-        "price": 15,
-        "category": "Papad"
-    },
-    {
-        "id": "87",
-        "img": null,
-        "name": "Fry Papad",
-        "description": "",
-        "price": 20,
-        "category": "Papad"
-    },
-    {
-        "id": "88",
-        "img": null,
-        "name": "Masala Papad",
-        "description": "",
-        "price": 30,
-        "category": "Papad"
-    },
-    {
-        "id": "89",
-        "img": null,
-        "name": "Tawa Roti Plain",
-        "description": "",
-        "price": 8,
-        "category": "Indian Breads"
-    },
-    {
-        "id": "90",
-        "img": null,
-        "name": "Lachcha Paratha",
-        "description": "",
-        "price": 30,
-        "category": "Indian Breads"
-    },
-    {
-        "id": "91",
-        "img": null,
-        "name": "Tawa Roti Butter",
-        "description": "",
-        "price": 10,
-        "category": "Indian Breads"
-    },
-    {
-        "id": "92",
-        "img": null,
-        "name": "Butter Naan",
-        "description": "",
-        "price": 30,
-        "category": "Indian Breads"
-    },
-    {
-        "id": "93",
-        "img": null,
-        "name": "Tandoori Roti Plain",
-        "description": "",
-        "price": 10,
-        "category": "Indian Breads"
-    },
-    {
-        "id": "94",
-        "img": null,
-        "name": "Garlic Naan",
-        "description": "",
-        "price": 40,
-        "category": "Indian Breads"
-    },
-    {
-        "id": "95",
-        "img": null,
-        "name": "Tandoori Roti Butter",
-        "description": "",
-        "price": 12,
-        "category": "Indian Breads"
-    },
-    {
-        "id": "96",
-        "img": null,
-        "name": "Aloo Parantha",
-        "description": "",
-        "price": 50,
-        "category": "Indian Breads"
-    },
-    {
-        "id": "97",
-        "img": null,
-        "name": "Missi Roti",
-        "description": "",
-        "price": 25,
-        "category": "Indian Breads"
-    },
-    {
-        "id": "98",
-        "img": null,
-        "name": "Dal Butter Khichdi",
-        "description": "",
-        "price": 130,
-        "category": "Combo"
-    },
-    {
-        "id": "99",
-        "img": null,
-        "name": "Plain Rice",
-        "description": "",
-        "price": 60,
-        "category": "Rice"
-    },
-    {
-        "id": "100",
-        "img": null,
-        "name": "Chhole Bhature",
-        "description": "",
-        "price": 80,
-        "category": "Combo"
-    },
-    {
-        "id": "101",
-        "img": null,
-        "name": "Chhole Kulche",
-        "description": "",
-        "price": 100,
-        "category": "Combo"
-    },
-    {
-        "id": "102",
-        "img": null,
-        "name": "Jeeri Rice",
-        "description": "",
-        "price": 70,
-        "category": "Rice"
-    },
-    {
-        "id": "103",
-        "img": null,
-        "name": "Veg Biryani",
-        "description": "",
-        "price": 120,
-        "category": "Rice"
-    },
-    {
-        "id": "104",
-        "img": null,
-        "name": "Paneer Kulche",
-        "description": "",
-        "price": 130,
-        "category": "Combo"
-    },
-    {
-        "id": "105",
-        "img": null,
-        "name": "Matar Pulav",
-        "description": "",
-        "price": 100,
-        "category": "Rice"
-    },
-    {
-        "id": "106",
-        "img": null,
-        "name": "Chinese Combo (2 Item)",
-        "description": "",
-        "price": 130,
-        "category": "Combo"
-    },
-    {
-        "id": "107",
-        "img": null,
-        "name": "Masala Rice",
-        "description": "",
-        "price": 80,
-        "category": "Rice"
-    },
-    {
-        "id": "108",
-        "img": null,
-        "name": "Dal Jeera Fry",
-        "description": "",
-        "price": 100,
-        "category": "Dal"
-    },
-    {
-        "id": "109",
-        "img": null,
-        "name": "Dal Tadka",
-        "description": "",
-        "price": 110,
-        "category": "Dal"
-    },
-    {
-        "id": "110",
-        "img": null,
-        "name": "Dal Butter Fry",
-        "description": "",
-        "price": 110,
-        "category": "Dal"
-    },
-    {
-        "id": "111",
-        "img": null,
-        "name": "Dal Fry",
-        "description": "",
-        "price": 100,
-        "category": "Dal"
-    },
-    {
-        "id": "112",
-        "img": null,
-        "name": "Special Thali",
-        "description": "Includes Dal, Paneer Masala, Seasonal Veg, Jeera Rice, Salad, Achar, 5 Tawa Roti, Papad",
-        "price": 110,
-        "category": "Thali"
-    },
-    {
-        "id": "113",
-        "img": null,
-        "name": "Chinese Plater (4 Items)",
-        "description": "",
-        "price": 170,
-        "category": "Chinese Plater"
+'use client';
+import { useEffect, useState, useRef } from "react";
+import MealItem from "./MealItem";
+import { useCartContext } from "../context/cart-context";
+import { useParams } from "next/navigation";
+import theGoldenSpoonMenu from "../../data/theGoldenSpoon.json";
+import configData from "../../data/config.json";
+import SubscriptionDialog from "../dialogs/SubscriptionDialog";
+import "./categories.css";
+
+const parseDate = (dateStr) => {
+  if (!dateStr) return null;
+  const [day, month, year] = dateStr.split("/").map(Number);
+  return new Date(year, month - 1, day);
+};
+
+const AvailableMeals = () => {
+  const containerRef = useRef(null);
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  const { allMenuItems, setAllMenuItems, setCurrentHotel } = useCartContext();
+  const [meals, setMeals] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [freeTrialExpireToday, setFreeTrialExpireToday] = useState(false);
+  const [subscriptionExpireToday, setSubscriptionExpireToday] = useState(false);
+  const params = useParams();
+  const hotelInUrl = params.hotel;
+
+  const handleScroll = (e) => {
+    if (containerRef.current) {
+      containerRef.current.scrollLeft += e.deltaY;
     }
-]
+  };
+
+  useEffect(() => {
+    const today = new Date();
+    const currentData = configData[hotelInUrl];
+    if (currentData) {
+      const todayDateOnly = new Date(
+        today.getFullYear(),
+        today.getMonth(),
+        today.getDate()
+      );
+      const expiryDate = parseDate(currentData.expiryDate);
+      const trialEndDate = parseDate(currentData.trialEndDate);
+
+      const isExpiryTodayOrPast =
+        expiryDate && todayDateOnly >= expiryDate && expiryDate > trialEndDate;
+      const isTrialEndTodayOrPast =
+        trialEndDate && todayDateOnly >= trialEndDate &&
+        trialEndDate.getTime() === expiryDate.getTime();
+
+      if (isTrialEndTodayOrPast) {
+        setFreeTrialExpireToday(true);
+        setSubscriptionExpireToday(false);
+      } else if (isExpiryTodayOrPast) {
+        setSubscriptionExpireToday(true);
+        setFreeTrialExpireToday(false);
+      } else {
+        setSubscriptionExpireToday(false);
+        setFreeTrialExpireToday(false);
+      }
+
+      if (hotelInUrl === "the-golden-spoon") {
+        setAllMenuItems(theGoldenSpoonMenu);
+        setCurrentHotel("the-golden-spoon");
+      }
+    }
+  }, [params.hotel, setAllMenuItems, setCurrentHotel, hotelInUrl]);
+
+  useEffect(() => {
+    if (allMenuItems.length > 0) {
+      setMeals(allMenuItems);
+      const filteredCategories = [];
+      allMenuItems.forEach((item) => {
+        if (item.category && !filteredCategories.includes(item.category)) {
+          filteredCategories.push(item.category);
+        }
+      });
+      setCategories(filteredCategories);
+      setIsLoading(false);
+    }
+  }, [allMenuItems]);
+
+  useEffect(() => {
+    if (subscriptionExpireToday || freeTrialExpireToday) {
+      setDialogOpen(true);
+    } else {
+      setDialogOpen(false);
+    }
+  }, [subscriptionExpireToday, freeTrialExpireToday]);
+
+  const mealsList = meals.map((meal) => (
+    <MealItem
+      id={meal.id}
+      key={meal.id}
+      img={meal.img}
+      alt={meal.alt}
+      name={meal.name}
+      description={meal.description}
+      price={meal.price}
+    />
+  ));
+
+  const handleItemsFilter = (cate) => {
+    if (cate === "All") {
+      setMeals(allMenuItems);
+    } else {
+      setMeals(allMenuItems.filter((item) => item.category === cate));
+    }
+    setSelectedCategory(cate);
+  };
+
+  if (isLoading) {
+    return (
+      <section className="text-center p-8">
+        <p>Loading...</p>
+      </section>
+    );
+  }
+
+  return (
+    <section className="max-w-4xl mx-auto p-4 pb-24">
+      <div
+        className="category-container mb-4"
+        ref={containerRef}
+        onWheel={handleScroll}
+      >
+        <button
+          className={selectedCategory === "All" ? "active" : ""}
+          onClick={() => handleItemsFilter("All")}
+        >
+          Show All Items
+        </button>
+        {categories.map((category) => (
+          <button
+            key={category}
+            className={selectedCategory === category ? "active" : ""}
+            onClick={() => handleItemsFilter(category)}
+          >
+            {category}
+          </button>
+        ))}
+      </div>
+      <div className="card">
+        <ul className="divide-y divide-gray-200">{mealsList}</ul>
+      </div>
+
+      <SubscriptionDialog
+        open={dialogOpen}
+        freeTrialExpireToday={freeTrialExpireToday}
+        subscriptionExpireToday={subscriptionExpireToday}
+      />
+    </section>
+  );
+};
+
+export default AvailableMeals;

@@ -1,52 +1,159 @@
 'use client';
-import { useState, useEffect } from "react";
+import { useEffect, useState, useRef } from "react";
+import MealItem from "./MealItem";
+import { useCartContext } from "../context/cart-context";
+import { useParams } from "next/navigation";
+import theGoldenSpoonMenu from "../../data/theGoldenSpoon.json";
+import configData from "../../data/config.json";
+import SubscriptionDialog from "../dialogs/SubscriptionDialog";
+import "./categories.css";
 
-import { useCartContext } from "../../../context/cart-context";
-import { FaCaretRight } from "react-icons/fa";
+const parseDate = (dateStr) => {
+  if (!dateStr) return null;
+  const [day, month, year] = dateStr.split("/").map(Number);
+  return new Date(year, month - 1, day);
+};
 
-import CartIcon from "../../../cart/CartIcon";
-import classes from "../css/HeaderCartButton.module.css";
+const AvailableMeals = () => {
+  const containerRef = useRef(null);
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  const { allMenuItems, setAllMenuItems, setCurrentHotel } = useCartContext();
+  const [meals, setMeals] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [freeTrialExpireToday, setFreeTrialExpireToday] = useState(false);
+  const [subscriptionExpireToday, setSubscriptionExpireToday] = useState(false);
+  const params = useParams();
+  const hotelInUrl = params.hotel;
 
-const HeaderCartButton = (props) => {
-  const { cartItems, setShowCart } = useCartContext();
-  const [totalCartItems, setTotalCartItems] = useState(0);
-
-  const clickHandler = () => {
-    setShowCart(true)
+  const handleScroll = (e) => {
+    if (containerRef.current) {
+      containerRef.current.scrollLeft += e.deltaY;
+    }
   };
 
-  const botmNav = `${classes.botmNav}`;
   useEffect(() => {
-    if (Object.keys(cartItems).length === 0) {
-      setTotalCartItems(0);
-      return;
+    const today = new Date();
+    const currentData = configData[hotelInUrl];
+    if (currentData) {
+      const todayDateOnly = new Date(
+        today.getFullYear(),
+        today.getMonth(),
+        today.getDate()
+      );
+      const expiryDate = parseDate(currentData.expiryDate);
+      const trialEndDate = parseDate(currentData.trialEndDate);
+
+      const isExpiryTodayOrPast =
+        expiryDate && todayDateOnly >= expiryDate && expiryDate > trialEndDate;
+      const isTrialEndTodayOrPast =
+        trialEndDate && todayDateOnly >= trialEndDate &&
+        trialEndDate.getTime() === expiryDate.getTime();
+
+      if (isTrialEndTodayOrPast) {
+        setFreeTrialExpireToday(true);
+        setSubscriptionExpireToday(false);
+      } else if (isExpiryTodayOrPast) {
+        setSubscriptionExpireToday(true);
+        setFreeTrialExpireToday(false);
+      } else {
+        setSubscriptionExpireToday(false);
+        setFreeTrialExpireToday(false);
+      }
+
+      if (hotelInUrl === "the-golden-spoon") {
+        setAllMenuItems(theGoldenSpoonMenu);
+        setCurrentHotel("the-golden-spoon");
+      }
     }
-    setTotalCartItems(Object.values(cartItems).reduce((pre, cur) => pre + cur, 0));
-  }, [cartItems]);
+  }, [params.hotel, setAllMenuItems, setCurrentHotel, hotelInUrl]);
+
+  useEffect(() => {
+    if (allMenuItems.length > 0) {
+      setMeals(allMenuItems);
+      const filteredCategories = [];
+      allMenuItems.forEach((item) => {
+        if (item.category && !filteredCategories.includes(item.category)) {
+          filteredCategories.push(item.category);
+        }
+      });
+      setCategories(filteredCategories);
+      setIsLoading(false);
+    }
+  }, [allMenuItems]);
+
+  useEffect(() => {
+    if (subscriptionExpireToday || freeTrialExpireToday) {
+      setDialogOpen(true);
+    } else {
+      setDialogOpen(false);
+    }
+  }, [subscriptionExpireToday, freeTrialExpireToday]);
+
+  const mealsList = meals.map((meal) => (
+    <MealItem
+      id={meal.id}
+      key={meal.id}
+      img={meal.img}
+      alt={meal.alt}
+      name={meal.name}
+      description={meal.description}
+      price={meal.price}
+    />
+  ));
+
+  const handleItemsFilter = (cate) => {
+    if (cate === "All") {
+      setMeals(allMenuItems);
+    } else {
+      setMeals(allMenuItems.filter((item) => item.category === cate));
+    }
+    setSelectedCategory(cate);
+  };
+
+  if (isLoading) {
+    return (
+      <section className="text-center p-8">
+        <p>Loading...</p>
+      </section>
+    );
+  }
 
   return (
-    <>
-      <div className={botmNav}>
-        <div onClick={clickHandler} className="row w-100 p-0">
-          <div className="col-9 m-auto p-0">
-            <button className={classes.buttonRight}>
-              <span className={classes.icon}>
-                <CartIcon />
-              </span>
-              <span className={classes.cart}>Items</span>
-              <span className={classes.badge}>{totalCartItems}</span>
-            </button>
-          </div>
-          <div className="col-3 m-auto text-end p-0">
-            <button className={classes.buttonLeft}>
-              <span>Order </span>
-              <span><FaCaretRight /></span>
-            </button>
-          </div>
-        </div>
+    <section className="max-w-4xl mx-auto p-4 pb-24">
+      <div
+        className="category-container mb-4"
+        ref={containerRef}
+        onWheel={handleScroll}
+      >
+        <button
+          className={selectedCategory === "All" ? "active" : ""}
+          onClick={() => handleItemsFilter("All")}
+        >
+          Show All Items
+        </button>
+        {categories.map((category) => (
+          <button
+            key={category}
+            className={selectedCategory === category ? "active" : ""}
+            onClick={() => handleItemsFilter(category)}
+          >
+            {category}
+          </button>
+        ))}
       </div>
-    </>
+      <div className="card">
+        <ul className="divide-y divide-gray-200">{mealsList}</ul>
+      </div>
+
+      <SubscriptionDialog
+        open={dialogOpen}
+        freeTrialExpireToday={freeTrialExpireToday}
+        subscriptionExpireToday={subscriptionExpireToday}
+      />
+    </section>
   );
 };
 
-export default HeaderCartButton;
+export default AvailableMeals;
