@@ -1,6 +1,6 @@
 {
   "the-golden-spoon": {
-    "whatsapp": "1234567890",
+    "whatsapp": "8982995930",
     "name": "The Golden Spoon",
     "subscriptionDate": "01/08/2024",
     "expiryDate": "01/10/2027",
@@ -8,5 +8,15 @@
     "layout": "default",
     "destination": false,
     "menuType": "veg"
+  },
+  "deva-ka-dhaba": {
+    "whatsapp": "8982995930",
+    "name": "Deva ka Dhaba",
+    "subscriptionDate": "01/08/2024",
+    "expiryDate": "01/10/2027",
+    "trialEndDate": "01/10/2024",
+    "layout": "default",
+    "destination": false,
+    "menuType": "non-veg"
   }
 }

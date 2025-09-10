@@ -1,0 +1,26 @@
+[
+  {
+    "id": "dkd1",
+    "img": null,
+    "name": "Dhaba Chicken",
+    "description": "Spicy chicken curry with a rustic flavor.",
+    "price": 280,
+    "category": "Main Course"
+  },
+  {
+    "id": "dkd2",
+    "img": null,
+    "name": "Paneer Butter Masala",
+    "description": "Creamy paneer in a rich tomato gravy.",
+    "price": 220,
+    "category": "Main Course"
+  },
+  {
+    "id": "dkd3",
+    "img": null,
+    "name": "Tandoori Roti",
+    "description": "Classic whole wheat bread cooked in a tandoor.",
+    "price": 20,
+    "category": "Breads"
+  }
+]

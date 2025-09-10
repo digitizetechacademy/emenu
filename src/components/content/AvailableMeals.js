@@ -4,6 +4,7 @@ import MealItem from "./MealItem";
 import { useCartContext } from "../context/cart-context";
 import { useParams } from "next/navigation";
 import theGoldenSpoonMenu from "../../data/theGoldenSpoon.json";
+import devaKaDhabaMenu from "../../data/devaKaDhaba.json";
 import configData from "../../data/config.json";
 import SubscriptionDialog from "../dialogs/SubscriptionDialog";
 import "./categories.css";
@@ -65,6 +66,9 @@ const AvailableMeals = () => {
       if (hotelInUrl === "the-golden-spoon") {
         setAllMenuItems(theGoldenSpoonMenu);
         setCurrentHotel("the-golden-spoon");
+      } else if (hotelInUrl === "deva-ka-dhaba") {
+        setAllMenuItems(devaKaDhabaMenu);
+        setCurrentHotel("deva-ka-dhaba");
       }
     }
   }, [params.hotel, setAllMenuItems, setCurrentHotel, hotelInUrl]);
