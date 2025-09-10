@@ -16,9 +16,7 @@ function App() {
               </LayoutWrapper>
             }
           />
-          <Route path="/" exact element={<Navigate to="/dev" />} />
-          <Route path="/" exact element={<Navigate to="/zaika" />} />
-          <Route path="/" exact element={<Navigate to="/shrestha" />} />
+          <Route path="/" exact element={<Navigate to="/the-golden-spoon" />} />
         </Routes>
       </main>
     </CartProvider>

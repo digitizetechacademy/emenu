@@ -3,11 +3,6 @@ import MealItem from "./MealItem";
 import classes from "./AvailableMeals.module.css";
 import { useCartContext } from "../context/cart-context";
 import { useParams } from "react-router-dom";
-import whimsyBeanMenu from "../../data/whimsyBean.json";
-import devMenu from "../../data/dev.json";
-import shresthaMenu from "../../data/shrestha.json";
-import riverRineMenu from "../../data/riverRine.json";
-import foddiesHeavenMenu from "../../data/foddiesHeaven.json";
 import theGoldenSpoonMenu from "../../data/theGoldenSpoon.json";
 import configData from "../../data/config.json";
 import SubscriptionDialog from "../dialogs/SubscriptionDialog";
@@ -66,22 +61,7 @@ const AvailableMeals = () => {
         setFreeTrialExpireToday(false);
       }
 
-      if (hotelInUrl === "dev") {
-        setAllMenuItems(devMenu);
-        setCurrentHotel("dev");
-      } else if (hotelInUrl === "whimsyBean") {
-        setAllMenuItems(whimsyBeanMenu);
-        setCurrentHotel("whimsyBean");
-      } else if (hotelInUrl === "shrestha") {
-        setAllMenuItems(shresthaMenu);
-        setCurrentHotel("shrestha");
-      } else if (hotelInUrl === "foddies-heaven") {
-        setAllMenuItems(foddiesHeavenMenu);
-        setCurrentHotel("foddies-heaven");
-      } else if (hotelInUrl === "river-rine") {
-        setAllMenuItems(riverRineMenu);
-        setCurrentHotel("river-rine");
-      } else if (hotelInUrl === "the-golden-spoon") {
+      if (hotelInUrl === "the-golden-spoon") {
         setAllMenuItems(theGoldenSpoonMenu);
         setCurrentHotel("the-golden-spoon");
       }
