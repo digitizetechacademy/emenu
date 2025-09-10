@@ -25,9 +25,9 @@ const MealItem = (props) => {
   return (
     <li className="flex flex-col sm:flex-row justify-between items-center py-4 select-none">
       <div className="flex-grow mb-4 sm:mb-0">
-        <h3 className="text-xl md:text-2xl font-bold mb-1">{props.name}</h3>
-        {props.description && <p className="text-sm md:text-base italic text-gray-600">{props.description}</p>}
-        <p className="text-lg md:text-xl font-bold text-orange-600 mt-1">{price}</p>
+        <h3 className="text-lg md:text-xl font-bold mb-1">{props.name}</h3>
+        {props.description && <p className="text-xs md:text-sm italic text-gray-600">{props.description}</p>}
+        <p className="text-base md:text-lg font-bold text-orange-600 mt-1">{price}</p>
       </div>
       <div className="flex-shrink-0 flex flex-col items-center w-full sm:w-auto">
         {props?.img && (
@@ -51,14 +51,14 @@ const MealItem = (props) => {
           <div className="flex items-center justify-center space-x-3 w-full sm:w-auto">
             <button
               onClick={() => handleCartCount(props.id, 'remove')}
-              className="bg-orange-500 text-white font-bold rounded-full h-10 w-10 flex items-center justify-center text-2xl hover:bg-orange-600 transition-colors duration-300"
+              className="bg-orange-500 text-white font-bold rounded-full h-8 w-8 flex items-center justify-center text-xl hover:bg-orange-600 transition-colors duration-300"
             >
               -
             </button>
-            <span className="text-xl font-bold w-10 text-center">{selectedCount}</span>
+            <span className="text-lg font-bold w-8 text-center">{selectedCount}</span>
             <button
               onClick={() => handleCartCount(props.id, 'add')}
-              className="bg-orange-500 text-white font-bold rounded-full h-10 w-10 flex items-center justify-center text-2xl hover:bg-orange-600 transition-colors duration-300"
+              className="bg-orange-500 text-white font-bold rounded-full h-8 w-8 flex items-center justify-center text-xl hover:bg-orange-600 transition-colors duration-300"
             >
               +
             </button>

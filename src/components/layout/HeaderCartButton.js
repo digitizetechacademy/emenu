@@ -35,16 +35,16 @@ const HeaderCartButton = (props) => {
   return (
     <div onClick={clickHandler} className={btnClasses}>
       <div className="flex items-center space-x-3">
-        <span className="w-6 h-6">
+        <span className="w-5 h-5">
           <CartIcon />
         </span>
-        <span className="text-base md:text-lg font-bold">Your Cart</span>
-        <span className="bg-orange-500 text-white text-sm font-bold rounded-full px-3 py-1">
+        <span className="text-sm md:text-base font-bold">Your Cart</span>
+        <span className="bg-orange-500 text-white text-xs font-bold rounded-full px-2 py-1">
           {totalCartItems}
         </span>
       </div>
       <div className="flex items-center space-x-2">
-        <span className="text-base md:text-lg font-bold">Order</span>
+        <span className="text-sm md:text-base font-bold">Order</span>
         <span>
           <FaCaretRight />
         </span>

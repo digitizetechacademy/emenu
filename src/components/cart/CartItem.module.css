@@ -10,7 +10,7 @@
 .cart-item h2 {
   margin: 0 0 0.5rem 0;
   color: #363636;
-  font-size: 1.25rem;
+  font-size: 1rem;
 }
 
 .summary {
@@ -47,10 +47,10 @@
 .cart-item button {
   font: inherit;
   font-weight: bold;
-  font-size: 1.25rem;
+  font-size: 1rem;
   color: #FF5722;
   border: 1px solid #FF5722;
-  width: 3rem;
+  width: 2.5rem;
   text-align: center;
   border-radius: 6px;
   background-color: transparent;

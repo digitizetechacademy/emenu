@@ -21,12 +21,12 @@ const SubscriptionDialog = ({ open, freeTrialExpireToday, subscriptionExpireToda
       open={open}
     >
       {freeTrialExpireToday &&
-        <DialogTitle variant="h5" sx={{ m: 0, p: 2, fontWeight: "500"}} id="customized-dialog-title">
+        <DialogTitle variant="h6" sx={{ m: 0, p: 2, fontWeight: "500"}} id="customized-dialog-title">
           Free Trial End Today!
         </DialogTitle>
       }
       {subscriptionExpireToday &&
-        <DialogTitle variant="h5" sx={{ m: 0, p: 2, fontWeight: "500" }}>
+        <DialogTitle variant="h6" sx={{ m: 0, p: 2, fontWeight: "500" }}>
           Subscription Expired!
         </DialogTitle>
       }
@@ -43,7 +43,7 @@ const SubscriptionDialog = ({ open, freeTrialExpireToday, subscriptionExpireToda
             Please subscribe to continue using the service.
           </Typography>
         }
-        <Typography gutterBottom variant='p' sx={{ fontWeight: "600", fontSize: "16px" }}>
+        <Typography gutterBottom variant='p' sx={{ fontWeight: "600", fontSize: "14px" }}>
           --- Reach out to your vendor. ---
         </Typography>
       </DialogContent>

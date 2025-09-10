@@ -15,9 +15,9 @@ const Header = () => {
     <Fragment>
       {showCart && <Cart hideCart={hideCartHandler} />}
       <header className="fixed top-0 left-0 w-full bg-orange-500 text-white flex justify-between items-center px-4 sm:px-8 py-2 shadow-lg z-10">
-        <h1 className="text-xl sm:text-2xl font-bold">eMenu</h1>
+        <h1 className="text-lg sm:text-xl font-bold">eMenu</h1>
       </header>
-      <div className="h-16"></div> {/* Spacer for fixed header */}
+      <div className="h-14"></div> {/* Spacer for fixed header */}
     </Fragment>
   );
 };
