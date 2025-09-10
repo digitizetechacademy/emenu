@@ -17,8 +17,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={noto.className} suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
+      <body className={noto.className}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
