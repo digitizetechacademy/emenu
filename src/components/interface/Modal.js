@@ -3,12 +3,12 @@ import { Fragment, useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 
 const Backdrop = (props) => {
-  return <div className="fixed top-0 left-0 w-full h-screen z-20 bg-black bg-opacity-75" onClick={props.onClick} />;
+  return <div className="fixed inset-0 z-20 bg-black/75" onClick={props.onClick} />;
 };
 
 const ModalOverlay = (props) => {
   return (
-    <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-11/12 max-w-2xl bg-card p-4 rounded-lg shadow-lg z-30 animate-slide-down">
+    <div className="fixed top-1/2 left-1/2 w-11/12 max-w-lg -translate-x-1/2 -translate-y-1/2 rounded-lg bg-card p-4 shadow-lg z-30 animate-slide-down">
       <div>{props.children}</div>
     </div>
   );
