@@ -1,55 +1,29 @@
-import * as React from 'react';
-import { styled } from '@mui/material/styles';
-import Dialog from '@mui/material/Dialog';
-import DialogTitle from '@mui/material/DialogTitle';
-import DialogContent from '@mui/material/DialogContent';
-import Typography from '@mui/material/Typography';
-
-const BootstrapDialog = styled(Dialog)(({ theme }) => ({
-  '& .MuiDialogContent-root': {
-    padding: theme.spacing(2),
-  },
-  '& .MuiDialogActions-root': {
-    padding: theme.spacing(1),
-  },
-}));
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
 
 const SubscriptionDialog = ({ open, freeTrialExpireToday, subscriptionExpireToday }) => {
   return (
-    <BootstrapDialog
-      aria-labelledby="customized-dialog-title"
-      open={open}
-    >
-      {freeTrialExpireToday &&
-        <DialogTitle variant="h6" sx={{ m: 0, p: 2, fontWeight: "500"}} id="customized-dialog-title">
-          Free Trial End Today!
-        </DialogTitle>
-      }
-      {subscriptionExpireToday &&
-        <DialogTitle variant="h6" sx={{ m: 0, p: 2, fontWeight: "500" }}>
-          Subscription Expired!
-        </DialogTitle>
-      }
-      <DialogContent dividers>
-        {
-          freeTrialExpireToday &&
-          <Typography gutterBottom>
-            Your free trial has ended. Please subscribe to continue using the service.
-          </Typography>
-        }
-        {
-          subscriptionExpireToday &&
-          <Typography gutterBottom>
-            Please subscribe to continue using the service.
-          </Typography>
-        }
-        <Typography gutterBottom variant='p' sx={{ fontWeight: "600", fontSize: "14px" }}>
-          --- Reach out to your vendor. ---
-        </Typography>
+    <Dialog open={open}>
+      <DialogContent>
+        <DialogHeader>
+          <DialogTitle>
+            {freeTrialExpireToday && "Free Trial End Today!"}
+            {subscriptionExpireToday && "Subscription Expired!"}
+          </DialogTitle>
+          <DialogDescription>
+            {freeTrialExpireToday && "Your free trial has ended. Please subscribe to continue using the service."}
+            {subscriptionExpireToday && "Please subscribe to continue using the service."}
+            <p className="font-semibold text-sm pt-2">--- Reach out to your vendor. ---</p>
+          </DialogDescription>
+        </DialogHeader>
       </DialogContent>
-    </BootstrapDialog >
+    </Dialog>
   );
 }
-
 
 export default SubscriptionDialog;
