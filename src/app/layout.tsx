@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
-import { CartProvider, useCartContext } from "@/components/context/cart-context";
+import { CartProvider } from "@/components/context/cart-context";
 import { ThemeProvider } from "@/components/context/theme-provider";
 
 const noto = Noto_Sans_JP({ subsets: ["latin"], weight: ["400", "700"] });
