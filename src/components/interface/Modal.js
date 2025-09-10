@@ -8,8 +8,10 @@ const Backdrop = (props) => {
 
 const ModalOverlay = (props) => {
   return (
-    <div className="fixed top-1/2 left-1/2 w-11/12 max-w-lg -translate-x-1/2 -translate-y-1/2 transform rounded-lg bg-card p-4 shadow-lg z-30 animate-slide-down">
-      <div>{props.children}</div>
+    <div className="fixed inset-0 z-30 flex items-center justify-center p-4">
+      <div className="w-full max-w-lg rounded-lg bg-card p-4 shadow-lg animate-slide-down">
+        <div>{props.children}</div>
+      </div>
     </div>
   );
 };
