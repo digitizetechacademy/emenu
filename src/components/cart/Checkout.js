@@ -1,7 +1,5 @@
 import { useRef, useState } from 'react';
 
-import classes from './Checkout.module.css';
-
 const isEmpty = value => value.trim() === '';
 
 const Checkout = props => {
@@ -36,25 +34,40 @@ const Checkout = props => {
     });
   };
 
-  const nameControlClasses = `${classes.control} ${formValidity.name ? '' : classes.invalid}`;
+  const nameControlClasses = `mb-2 ${formValidity.name ? '' : 'text-destructive'}`;
 
   return (
-    <form className={classes.form} onSubmit={confirmHandler}>
+    <form className="my-4 h-auto overflow-auto" onSubmit={confirmHandler}>
       <div className={nameControlClasses}>
-        <label htmlFor='name'>Your Name</label>
-        <input ref={nameInputRef} type='text' id='name' />
-        {!formValidity.name && <p>Please enter a valid name!</p>}
+        <label className="font-bold mb-1 block text-foreground" htmlFor='name'>Your Name</label>
+        <input 
+            ref={nameInputRef} 
+            type='text' 
+            id='name'
+            className={`font-inherit border border-solid border-border bg-background text-foreground rounded w-full p-1 ${!formValidity.name ? 'border-destructive bg-red-100' : ''}`}
+        />
+        {!formValidity.name && <p className="text-destructive text-xs">Please enter a valid name!</p>}
       </div>
-      <div className={classes.control}>
-        <label htmlFor='instructions'>Special Instructions (Optional)</label>
-        <textarea ref={instructionsInputRef} id='instructions' rows='2'></textarea>
+      <div className="mb-2">
+        <label className="font-bold mb-1 block text-foreground" htmlFor='instructions'>Special Instructions (Optional)</label>
+        <textarea 
+            ref={instructionsInputRef} 
+            id='instructions' 
+            rows='2'
+            className="font-inherit border border-solid border-border bg-background text-foreground rounded w-full p-1"
+        ></textarea>
       </div>
-      <div className={classes.actions}>
+      <div className="flex justify-end gap-4 mt-4">
         <button
-          type='button' onClick={props.onCancel}>
-          Cancel</button>
-        <button className={classes.submit}>
-          Confirm</button>
+          type='button' 
+          onClick={props.onCancel}
+          className="font-inherit text-xs cursor-pointer bg-transparent border border-solid border-primary py-2 px-8 rounded-full ml-4 text-primary hover:bg-primary hover:text-primary-foreground active:bg-primary active:text-primary-foreground"
+        >
+          Cancel
+        </button>
+        <button className="font-inherit text-xs cursor-pointer bg-primary text-primary-foreground border border-solid border-primary py-2 px-8 rounded-full ml-4 hover:bg-primary/90 active:bg-primary/90">
+          Confirm
+        </button>
       </div>
     </form>
   );

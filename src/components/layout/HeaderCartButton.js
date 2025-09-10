@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect } from "react";
 import { useCartContext } from "../context/cart-context";
-import { FaCaretRight } from "react-icons/fa";
+import { ChevronRight } from "lucide-react";
 import CartIcon from "../cart/CartIcon";
 
 const HeaderCartButton = (props) => {
@@ -46,7 +46,7 @@ const HeaderCartButton = (props) => {
       <div className="flex items-center space-x-2">
         <span className="text-xs md:text-sm font-bold">Order</span>
         <span>
-          <FaCaretRight />
+          <ChevronRight size={16} />
         </span>
       </div>
     </div>

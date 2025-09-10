@@ -4,7 +4,6 @@ import { useCartContext } from "../context/cart-context";
 import Modal from "../interface/Modal";
 import CartItem from "./CartItem";
 import { useSearchParams } from "next/navigation";
-import classes from "./Cart.module.css";
 import config from "../../data/config.json";
 import Checkout from "./Checkout";
 
@@ -104,12 +103,18 @@ const Cart = (props) => {
     ));
 
   const modalActions = (
-    <div className={classes.actions}>
-      <button className={classes["button--alt"]} onClick={props.hideCart}>
+    <div className="text-right">
+      <button 
+        className="font-inherit text-xs cursor-pointer bg-transparent border border-primary py-2 px-8 rounded-full ml-4 hover:bg-primary hover:text-primary-foreground active:bg-primary active:text-primary-foreground" 
+        onClick={props.hideCart}
+      >
         Close
       </button>
       {hasItems && (
-        <button className={classes.button} onClick={handleOrder}>
+        <button 
+          className="font-inherit text-xs cursor-pointer bg-primary text-primary-foreground border border-primary py-2 px-8 rounded-full ml-4 hover:bg-primary/90 active:bg-primary/90" 
+          onClick={handleOrder}
+        >
           Order
         </button>
       )}
@@ -118,8 +123,8 @@ const Cart = (props) => {
 
   const cartModalContent = (
     <React.Fragment>
-      <ul className={`${classes["cart-items"]} max-h-[50vh] overflow-y-auto pr-4`}>{cartItemsRendered}</ul>
-      <div className={classes.total}>
+      <ul className="list-none m-0 p-0 max-h-[50vh] overflow-y-auto pr-4">{cartItemsRendered}</ul>
+      <div className="flex justify-between items-center font-bold text-sm my-4">
         <span>Total Amount</span>
         <span>₹{totalAmount}</span>
       </div>
