@@ -6,7 +6,7 @@ import { CartProvider } from "@/components/context/cart-context";
 const noto = Noto_Sans_JP({ subsets: ["latin"], weight: ["400", "700"] });
 
 export const metadata: Metadata = {
-  title: "Digi Menu",
+  title: "eMenu",
   description: "A digital menu for restaurants",
 };
 

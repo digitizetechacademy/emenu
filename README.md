@@ -1,2 +1,2 @@
-# apnichanderi-digi-menu
-Apni Chanderi Digital Menu
+# eMenu
+A digital menu application.

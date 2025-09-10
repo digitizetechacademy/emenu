@@ -16,7 +16,7 @@ const Header = () => {
     <Fragment>
       {showCart && <Cart hideCart={hideCartHandler} />}
       <header className={classes.header}>
-        <h1>Digi Menu</h1>
+        <h1>eMenu</h1>
       </header>
       <div className={classes['main-image']}>
       </div>

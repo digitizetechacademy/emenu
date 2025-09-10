@@ -21,7 +21,7 @@ const DefaultHeader = () => {
     <Fragment>
       {showCart && <Cart hideCart={hideCartHandler} />}
       <header className={classes.header}>
-        <h3>Digi Menu</h3>
+        <h3>eMenu</h3>
         {currentData?.destination && <ChooseDestination />}
       </header>
       <div className={classes['main-image']}>
