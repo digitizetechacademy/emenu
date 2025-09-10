@@ -11,6 +11,7 @@ export const CartProvider = ({ children }) => {
   const [showCart, setShowCart] = useState(false);
   const [totalAmount, setTotalAmount] = useState(0);
   const [currentHotel, setCurrentHotel] = useState('');
+  const [searchQuery, setSearchQuery] = useState('');
 
   const addItemToCart = (itemId) => {
     if (cartItems.hasOwnProperty(itemId) && cartItems[itemId] < 8) {
@@ -85,7 +86,9 @@ export const CartProvider = ({ children }) => {
         setTotalAmount,
         cartItemsAllDetails,
         currentHotel,
-        setCurrentHotel
+        setCurrentHotel,
+        searchQuery,
+        setSearchQuery
       }}
     >
       {children}

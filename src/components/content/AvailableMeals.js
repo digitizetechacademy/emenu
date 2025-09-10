@@ -18,7 +18,7 @@ const parseDate = (dateStr) => {
 const AvailableMeals = () => {
   const containerRef = useRef(null);
   const [selectedCategory, setSelectedCategory] = useState("All");
-  const { allMenuItems, setAllMenuItems, setCurrentHotel } = useCartContext();
+  const { allMenuItems, setAllMenuItems, setCurrentHotel, searchQuery } = useCartContext();
   const [meals, setMeals] = useState([]);
   const [categories, setCategories] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -75,7 +75,6 @@ const AvailableMeals = () => {
 
   useEffect(() => {
     if (allMenuItems.length > 0) {
-      setMeals(allMenuItems);
       const filteredCategories = [];
       allMenuItems.forEach((item) => {
         if (item.category && !filteredCategories.includes(item.category)) {
@@ -86,6 +85,25 @@ const AvailableMeals = () => {
       setIsLoading(false);
     }
   }, [allMenuItems]);
+
+  useEffect(() => {
+    let filteredMeals = allMenuItems;
+
+    if (selectedCategory !== "All") {
+      filteredMeals = filteredMeals.filter(
+        (item) => item.category === selectedCategory
+      );
+    }
+
+    if (searchQuery) {
+      filteredMeals = filteredMeals.filter((item) =>
+        item.name.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+    }
+
+    setMeals(filteredMeals);
+  }, [allMenuItems, selectedCategory, searchQuery]);
+
 
   useEffect(() => {
     if (subscriptionExpireToday || freeTrialExpireToday) {
@@ -108,11 +126,6 @@ const AvailableMeals = () => {
   ));
 
   const handleItemsFilter = (cate) => {
-    if (cate === "All") {
-      setMeals(allMenuItems);
-    } else {
-      setMeals(allMenuItems.filter((item) => item.category === cate));
-    }
     setSelectedCategory(cate);
   };
 
@@ -148,7 +161,11 @@ const AvailableMeals = () => {
         ))}
       </div>
       <div className="card">
-        <ul className="divide-y divide-gray-200">{mealsList}</ul>
+        {mealsList.length > 0 ? (
+          <ul className="divide-y divide-gray-200">{mealsList}</ul>
+        ) : (
+          <p className="text-center text-muted-foreground">No dishes found.</p>
+        )}
       </div>
 
       <SubscriptionDialog
