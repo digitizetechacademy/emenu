@@ -118,7 +118,7 @@ const Cart = (props) => {
 
   const cartModalContent = (
     <React.Fragment>
-      <ul className={`${classes["cart-items"]} max-h-[50vh] overflow-y-auto`}>{cartItemsRendered}</ul>
+      <ul className={`${classes["cart-items"]} max-h-[50vh] overflow-y-auto pr-4`}>{cartItemsRendered}</ul>
       <div className={classes.total}>
         <span>Total Amount</span>
         <span>₹{totalAmount}</span>
