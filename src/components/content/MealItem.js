@@ -25,8 +25,8 @@ const MealItem = (props) => {
   return (
     <li className="flex justify-between items-center py-4 select-none">
       <div className="flex-grow">
-        <h3 className="text-base md:text-lg font-bold mb-1">{props.name}</h3>
-        {props.description && <p className="text-xs md:text-sm italic text-muted-foreground">{props.description}</p>}
+        <h3 className="text-sm md:text-base font-bold mb-1">{props.name}</h3>
+        {props.description && <p className="text-xs italic text-muted-foreground">{props.description}</p>}
       </div>
       <div className="flex-shrink-0 flex flex-col items-center ml-4">
         {props?.img && (
@@ -39,12 +39,12 @@ const MealItem = (props) => {
             />
           </div>
         )}
-        <p className="text-sm md:text-base font-bold text-primary mb-1">{price}</p>
+        <p className="text-xs md:text-sm font-bold text-primary mb-1">{price}</p>
         <div className="w-28 flex justify-center">
             {selectedCount === 0 ? (
             <button 
                 onClick={() => handleCartCount(props.id, 'add')} 
-                className="w-full sm:w-auto bg-primary text-primary-foreground font-bold py-2 px-4 rounded-full hover:bg-primary/90 transition-colors duration-300 text-sm"
+                className="w-full sm:w-auto bg-primary text-primary-foreground font-bold py-2 px-4 rounded-full hover:bg-primary/90 transition-colors duration-300 text-xs"
             >
                 + Add
             </button>
@@ -52,14 +52,14 @@ const MealItem = (props) => {
             <div className="flex items-center justify-center space-x-2 w-full sm:w-auto">
                 <button
                 onClick={() => handleCartCount(props.id, 'remove')}
-                className="bg-primary text-primary-foreground font-bold rounded-full h-8 w-8 flex items-center justify-center text-xl hover:bg-primary/90 transition-colors duration-300"
+                className="bg-primary text-primary-foreground font-bold rounded-full h-8 w-8 flex items-center justify-center text-lg hover:bg-primary/90 transition-colors duration-300"
                 >
                 -
                 </button>
-                <span className="text-lg font-bold w-8 text-center">{selectedCount}</span>
+                <span className="text-base font-bold w-8 text-center">{selectedCount}</span>
                 <button
                 onClick={() => handleCartCount(props.id, 'add')}
-                className="bg-primary text-primary-foreground font-bold rounded-full h-8 w-8 flex items-center justify-center text-xl hover:bg-primary/90 transition-colors duration-300"
+                className="bg-primary text-primary-foreground font-bold rounded-full h-8 w-8 flex items-center justify-center text-lg hover:bg-primary/90 transition-colors duration-300"
                 >
                 +
                 </button>

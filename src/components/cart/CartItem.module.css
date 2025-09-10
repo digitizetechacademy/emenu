@@ -10,7 +10,7 @@
 .cart-item h2 {
   margin: 0 0 0.5rem 0;
   color: hsl(var(--foreground));
-  font-size: 1rem;
+  font-size: 0.875rem;
 }
 
 .summary {
@@ -47,7 +47,7 @@
 .cart-item button {
   font: inherit;
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 0.875rem;
   color: hsl(var(--primary));
   border: 1px solid hsl(var(--primary));
   width: 2.5rem;

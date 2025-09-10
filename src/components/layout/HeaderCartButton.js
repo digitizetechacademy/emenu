@@ -38,13 +38,13 @@ const HeaderCartButton = (props) => {
         <span className="w-5 h-5">
           <CartIcon />
         </span>
-        <span className="text-sm md:text-base font-bold">Your Cart</span>
+        <span className="text-xs md:text-sm font-bold">Your Cart</span>
         <span className="bg-primary text-primary-foreground text-xs font-bold rounded-full px-2 py-1">
           {totalCartItems}
         </span>
       </div>
       <div className="flex items-center space-x-2">
-        <span className="text-sm md:text-base font-bold">Order</span>
+        <span className="text-xs md:text-sm font-bold">Order</span>
         <span>
           <FaCaretRight />
         </span>
